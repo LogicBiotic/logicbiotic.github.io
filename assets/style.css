@@ -1,0 +1,186 @@
+/*Global declarations*/
+@font-face {
+    font-family: 'League Spartan';
+    src: url('../assets/LeagueSpartan-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    font-family: 'League Spartan', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Formatting footer pinned to bottom when page is short */
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+main {
+    flex: 1;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+/*Navigation bar stuff here*/
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+  min-height: 15%;
+  color: white;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  box-shadow: 0 1px 25px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 10;
+}
+
+
+.navigation {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+}
+
+.nav-item-with-dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #222;
+    border: 1px solid #333;
+    min-width: 150px;
+    z-index: 10;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 0.5em 1em;
+    color: white;
+    text-decoration: none;
+}
+
+.dropdown-menu a:hover {
+    background-color: #444;
+}
+
+.nav-item-with-dropdown.open .dropdown-menu {
+    display: block;
+}
+
+.dropdown-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0 0;
+}
+
+/*Main stuff here*/
+main {
+    background-color: #e8e8e8;
+    padding: 0.75rem 1rem;
+}
+
+.container {
+    background-color: #fff;
+    padding: 1rem 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    box-shadow: 0 1px 12px rgba(0, 0, 0, 0.25);
+}
+
+.intro {
+    padding: 1rem 1rem;
+}
+
+.separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 40px 0;
+}
+
+.separator::before,
+.separator::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid #ccc;
+    margin: 0 20px;
+}
+
+/*Footer stuff here*/
+footer {
+    background-color: #f8f8f8;
+    width: 100%;
+    min-height: 20%;
+}
+
+.footer-content {
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/*4 footer section here*/
+.footer-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.footer-col {
+    flex: 1 1 22%;
+    min-width: 200px;
+    padding: 0 0.5rem;
+}
+
+.footer-col .socials ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.footer-col .newsletter-form input[type="email"] {
+
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/*.footer-content .copyright {
+    flex: 2;
+    display: flex;
+    align-self: flex-end;
+    justify-content: center;
+}
+
+
+.footer-content .socials {
+    flex: 1;
+}
+
+
+
+.footer-content .newsletter-form {
+    flex: 1;
+}
