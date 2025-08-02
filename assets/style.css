@@ -17,7 +17,12 @@
 html,
 body {
     height: 100%;
+    font-size: 18px;
     margin: 0;
+}
+
+p {
+  line-height: 1.5;
 }
 
 .page-wrapper {
@@ -37,19 +42,48 @@ main {
 
 /*Navigation bar stuff here*/
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1em;
-  min-height: 15%;
-  color: white;
-  background-color: white;
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  box-shadow: 0 1px 25px rgba(0, 0, 0, 0.1);
-  position: relative;
-  z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    min-height: 15%;
+    color: white;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    box-shadow: 0 1px 25px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 10;
 }
 
+.navbar .logo {
+    flex: 1;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.navbar .navigation {
+    flex: 10;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.navbar .navigation a, .dropdown-toggle {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.navbar .navigation a:hover, .dropdown-toggle:hover {
+    color: rgba(0, 0, 0, 0.9);
+}
+
+.navbar .social-icons {
+    flex: 2;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
 
 .navigation {
     display: flex;
@@ -64,11 +98,11 @@ main {
 .dropdown-menu {
     display: none;
     position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #222;
-    border: 1px solid #333;
-    min-width: 150px;
+    top: 2.5rem;
+    left: -2rem;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    min-width: 175px;
     z-index: 10;
 }
 
@@ -91,7 +125,7 @@ main {
     background: none;
     border: none;
     cursor: pointer;
-    padding: 0 0;
+    padding-left: 0.2rem;
 }
 
 /*Main stuff here*/
@@ -100,11 +134,30 @@ main {
     padding: 0.75rem 1rem;
 }
 
+main h2 {
+    margin-bottom: 0.75rem;
+}
+
+main .left p {
+    margin-bottom: 1rem;
+}
+
 .container {
     background-color: #fff;
     padding: 1rem 1rem;
     border: 1px solid rgba(0, 0, 0, 0.25);
     box-shadow: 0 1px 12px rgba(0, 0, 0, 0.25);
+}
+
+.container .intro .left,
+.container .intro .right {
+  width: 50%;
+}
+
+.container .intro .left {
+    align-self: center;
+    text-align: justify;
+    padding: 1rem 12rem;
 }
 
 .intro {
@@ -124,6 +177,11 @@ main {
     flex: 1;
     border-bottom: 1px solid #ccc;
     margin: 0 20px;
+}
+
+.separator p {
+    font-size: 1.5rem;
+    margin: 0 0;
 }
 
 /*Footer stuff here*/
@@ -147,10 +205,27 @@ footer {
     justify-content: space-between;
 }
 
+.footer-top .footer-col div h3{
+    padding: 0.5rem 0;
+}
+
 .footer-col {
     flex: 1 1 22%;
     min-width: 200px;
     padding: 0 0.5rem;
+}
+
+.footer-col .socials ul li{
+    padding: 0.25rem;
+}
+.footer-col .socials ul li a{
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.footer-col .socials ul li a:hover{
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.9);
 }
 
 .footer-col .socials ul {
