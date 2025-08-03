@@ -22,7 +22,7 @@ body {
 }
 
 p {
-  line-height: 1.5;
+    line-height: 1.5;
 }
 
 .page-wrapper {
@@ -62,6 +62,46 @@ main {
     align-items: center;
 }
 
+/*Okay I'm just placing this in to test keyframes lol*/
+
+.navbar .logo {
+    filter: brightness(0) saturate(100%);
+    transition: filter 0.3s ease;
+}
+
+.navbar .logo:hover {
+    animation: colorCycle 3s linear infinite;
+}
+
+@keyframes colorCycle {
+    0% {
+        filter: brightness(0) saturate(100%);
+        /* Black */
+    }
+
+    33% {
+        filter: brightness(0) saturate(100%) invert(17%) sepia(95%) saturate(4000%) hue-rotate(205deg) brightness(90%) contrast(100%);
+        ;
+        /*Blue */
+    }
+
+    66% {
+        filter: brightness(0) saturate(100%) invert(50%) sepia(78%) saturate(3000%) hue-rotate(85deg) brightness(110%) contrast(90%);
+        /* Green */
+    }
+
+    100% {
+        filter: brightness(0) saturate(100%);
+        /* Back to Black */
+    }
+}
+
+/*End of animation stuff*/
+
+.logo:hover {
+    animation: colorCycle 3s linear infinite;
+}
+
 .navbar .navigation {
     flex: 10;
     display: flex;
@@ -69,12 +109,14 @@ main {
     align-items: center;
 }
 
-.navbar .navigation a, .dropdown-toggle {
+.navbar .navigation a,
+.dropdown-toggle {
     text-decoration: none;
     color: rgba(0, 0, 0, 0.7);
 }
 
-.navbar .navigation a:hover, .dropdown-toggle:hover {
+.navbar .navigation a:hover,
+.dropdown-toggle:hover {
     color: rgba(0, 0, 0, 0.9);
 }
 
@@ -83,6 +125,10 @@ main {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+}
+
+.navbar .social-icons img:hover {
+    filter: brightness(0) saturate(100%) invert(17%) sepia(95%) saturate(5156%) hue-rotate(188deg) brightness(120%) contrast(100%);
 }
 
 .navigation {
@@ -114,7 +160,7 @@ main {
 }
 
 .dropdown-menu a:hover {
-    background-color: #444;
+    background-color: #eee;
 }
 
 .nav-item-with-dropdown.open .dropdown-menu {
@@ -142,6 +188,24 @@ main .left p {
     margin-bottom: 1rem;
 }
 
+main .left .connect {
+    display: block;
+    margin: 1em auto;
+    background-color: white;
+    color: black;
+    border: 3px solid black;
+    border-radius: 0;
+    padding: 0.5em 1em;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+main .left .connect:hover {
+    background-color: black;
+    color: white;
+    transition: background-color 0.3s, color 0.3s;
+}
+
 .container {
     background-color: #fff;
     padding: 1rem 1rem;
@@ -151,13 +215,14 @@ main .left p {
 
 .container .intro .left,
 .container .intro .right {
-  width: 50%;
+    width: 50%;
 }
 
 .container .intro .left {
     align-self: center;
     text-align: justify;
-    padding: 1rem 12rem;
+    padding: 1rem 10rem;
+    min-width: 300px;
 }
 
 .intro {
@@ -205,7 +270,7 @@ footer {
     justify-content: space-between;
 }
 
-.footer-top .footer-col div h3{
+.footer-top .footer-col div h3 {
     padding: 0.5rem 0;
 }
 
@@ -215,17 +280,18 @@ footer {
     padding: 0 0.5rem;
 }
 
-.footer-col .socials ul li{
+.footer-col .socials ul li {
     padding: 0.25rem;
 }
-.footer-col .socials ul li a{
+
+.footer-col .socials ul li a {
     text-decoration: none;
     color: rgba(0, 0, 0, 0.7);
 }
 
-.footer-col .socials ul li a:hover{
-    text-decoration: none;
-    color: rgba(0, 0, 0, 0.9);
+.footer-col .socials ul li a:hover {
+    text-decoration: underline;
+    color: rgba(100, 200, 255, 0.9);
 }
 
 .footer-col .socials ul {
@@ -234,28 +300,42 @@ footer {
     margin: 0;
 }
 
+.newsletter-form {
+  display: flex;
+  width: 100%;
+  max-width: 400px; /* optional */
+  margin-top: 1rem;
+  justify-content: center;
+}
+
 .footer-col .newsletter-form input[type="email"] {
-
-    padding: 0.5rem;
-    margin-bottom: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    border: 2px solid black;
+    border-top: none;
+    border-left: none;
+    border-radius: 0;
+    background: #fff;
+    color: black;
+    outline: none;
 }
 
-/*.footer-content .copyright {
-    flex: 2;
-    display: flex;
-    align-self: flex-end;
-    justify-content: center;
+.footer-col .newsletter-form button[type="submit"] {
+    padding: 0.5rem 1.2rem;
+    border: 2px solid black;
+    border-left: none;
+    border-radius: 0;
+    background: white;
+    color: black;
+    font-weight: normal;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-
-.footer-content .socials {
-    flex: 1;
+.footer-col .newsletter-form button[type="submit"]:hover {
+    background: black;
+    color: white;
 }
 
-
-
-.footer-content .newsletter-form {
-    flex: 1;
+.footer-bottom .copyright {
+    color: #333;
 }

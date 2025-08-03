@@ -12,7 +12,7 @@
         <div class="navbar">
             <div class="logo">
                 <a href="index.html">
-                    <img src="media/logicbiotic-nexus-logo.png" alt="LogicBiotic Nexus" height="40">
+                    <img class="logo" src="media/logicbiotic-nexus-logo.png" alt="LogicBiotic Nexus" height="40">
                 </a>
             </div>
 
@@ -31,7 +31,8 @@
                     <a href="downloads.html">Downloads</a>
                     <button class="dropdown-toggle" aria-label="Toggle Downloads Menu">&#9660;</button>
                     <div class="dropdown-menu">
-                        <a href="#">Resume</a> <!-- future JS: give notice and redirect to Contact -->
+                        <a href="#" class="resume-alert-link">Resume</a>
+                        <!-- future JS: give notice and redirect to Contact -->
                         <a href="#">Undergraduate Thesis</a>
                     </div>
                 </div>
@@ -69,13 +70,15 @@
                         <p>Whether you're here to collaborate, connect, play some games, learn more about what I do, or
                             hire
                             me — feel free to reach out. Click the button below to say hi!</p>
-                        <button id="connect" class="connect">Let's connect</button>
+                        <button id="connect" class="connect">Let's connect!</button>
                     </div>
                     <div class="right">
 
                     </div>
                 </div>
-                <div class="separator"><p>View my recent work</p></div>
+                <div class="separator">
+                    <p>View my recent work</p>
+                </div>
                 <div class="carousel">
 
                 </div>
@@ -102,12 +105,12 @@
                         </div>
                     </div>
                     <div class="footer-col">
-                        <div class="newsletter-form">
+                        <div class="newsletter">
                             <h3><b>Newsletter</b></h3>
                             <p>Thank you so much for taking the time to drop by. If you're curious about what I'm
                                 currently building, learning, or exploring, leave your email — I’ll personally keep you
                                 in the loop!</p>
-                            <form action="#" method="post">
+                            <form action="#" method="post" class="newsletter-form">
                                 <input type="email" name="email" placeholder="E-Mail Address" required>
                                 <button type="submit">JOIN</button>
                             </form>

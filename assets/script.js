@@ -37,3 +37,45 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+// Resume link alert + redirect
+const resumeLink = document.querySelector(".resume-alert-link");
+
+if (resumeLink) {
+    resumeLink.addEventListener("click", function (event) {
+        event.preventDefault();
+
+        // Remove any existing alert
+        const existingAlert = document.getElementById("resume-alert");
+        if (existingAlert) existingAlert.remove();
+
+        // Create alert box
+        const alertBox = document.createElement("div");
+        alertBox.id = "resume-alert";
+        alertBox.innerText = "If you wish to download my resume, please contact me via e-mail.";
+        Object.assign(alertBox.style, {
+            position: "fixed",
+            top: "20px",
+            left: "50%",
+            transform: "translateX(-50%)",
+            background: "#333",
+            color: "#fff",
+            padding: "15px 20px",
+            borderRadius: "5px",
+            boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+            zIndex: "9999",
+            opacity: "1",
+            transition: "opacity 0.5s ease-in-out"
+        });
+
+        document.body.appendChild(alertBox);
+
+        setTimeout(() => {
+            alertBox.style.opacity = "0";
+            setTimeout(() => {
+                alertBox.remove();
+                window.open("contact.html", "_blank");
+            }, 500);
+        }, 3000);
+    });
+}
