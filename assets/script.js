@@ -79,3 +79,11 @@ if (resumeLink) {
         }, 3000);
     });
 }
+
+document.getElementById('campaignBtn').addEventListener('click', () => {
+  window.open('https://www.facebook.com/EnterogerminaGutDefenseVN/videos/636043429227470/', '_blank');
+});
+
+document.getElementById("thesisBtn").addEventListener("click", function () {
+    window.open("files/MendozaH_Thesis Manuscript FINAL SIGNED.pdf", "_blank");
+});
