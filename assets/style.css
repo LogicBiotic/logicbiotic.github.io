@@ -214,7 +214,7 @@ main h2 {
 .container .intro .left {
     align-self: center;
     text-align: justify;
-    padding: 1rem 8rem;
+    padding: 1vw 8vw;
     min-width: 300px;
 }
 
@@ -238,6 +238,26 @@ main .intro .left .connect:hover {
     background-color: black;
     color: white;
     transition: background-color 0.3s, color 0.3s;
+}
+
+.download-link {
+    text-decoration: none;
+    color:#333;
+    margin: 0.5rem 0;
+}
+
+.download-link:hover {
+    text-decoration: underline;
+    color:rgba(100, 200, 255, 0.9);
+}
+
+.download-desc {
+    margin-bottom: 1rem;
+}
+
+.download-preview {
+    max-width: 10%;
+    border-radius: 5px;
 }
 
 .separator {

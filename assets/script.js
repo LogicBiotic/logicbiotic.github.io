@@ -87,3 +87,7 @@ document.getElementById('campaignBtn').addEventListener('click', () => {
 document.getElementById("thesisBtn").addEventListener("click", function () {
     window.open("files/MendozaH_Thesis Manuscript FINAL SIGNED.pdf", "_blank");
 });
+
+document.getElementById("buwenBtn").addEventListener("click", function () {
+    window.open("https://github.com/LogicBiotic/Buwen-Discord-Gacha-Bot", "_blank");
+});
