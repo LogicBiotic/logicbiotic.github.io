@@ -242,13 +242,13 @@ main .intro .left .connect:hover {
 
 .download-link {
     text-decoration: none;
-    color:#333;
+    color: #333;
     margin: 0.5rem 0;
 }
 
 .download-link:hover {
     text-decoration: underline;
-    color:rgba(100, 200, 255, 0.9);
+    color: rgba(100, 200, 255, 0.9);
 }
 
 .download-desc {
@@ -295,12 +295,15 @@ main .intro .left .connect:hover {
 
 .features .feature-row .ft-text {
 
-    align-self: stretch; /* or remove this line entirely */
-    justify-content: flex-start; /* push content to the top */
+    align-self: stretch;
+    /* or remove this line entirely */
+    justify-content: flex-start;
+    /* push content to the top */
     text-align: justify;
     padding: 1rem 8rem;
     min-width: 300px;
 }
+
 .ft-text h3 {
     text-align: center;
     margin-bottom: 0.75rem;
@@ -335,6 +338,23 @@ main .intro .left .connect:hover {
     justify-content: center;
     min-width: 300px;
     min-height: 30rem;
+}
+
+.inviteBtn {
+    padding: 8px 14px;
+    background-color: #5865F2;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    margin-right: 8px;
+}
+
+.tosBtn {
+    padding: 8px 14px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
 }
 
 /*.features .feature-row .left p, .features .feature-row .right p{
