@@ -1,3 +1,34 @@
+document.addEventListener("DOMContentLoaded", function() {
+    const images = [
+        "/media/index/profile1.jpg",
+        "/media/index/profile2.jpg",
+        "/media/index/profile3.jpg"
+    ];
+
+    let index = 0;
+    const imgElement = document.getElementById("profileImage");
+
+    // Preload images
+    images.forEach(src => {
+        const img = new Image();
+        img.src = src;
+    });
+
+    setInterval(() => {
+        imgElement.style.opacity = 0.35; // fade out
+
+        setTimeout(() => {
+            index = (index + 1) % images.length;
+            imgElement.src = images[index];
+            imgElement.style.opacity = 1; // fade in
+        }, 300); // match transition duration
+    }, 4000); // change every 4 seconds
+});
+
+
+
+
+
 document.addEventListener("DOMContentLoaded", function () {
     // Redirect for Connect button
     const connect = document.getElementById("connect");
@@ -91,3 +122,4 @@ document.getElementById("thesisBtn").addEventListener("click", function () {
 document.getElementById("buwenBtn").addEventListener("click", function () {
     window.open("https://github.com/LogicBiotic/Buwen-Discord-Gacha-Bot", "_blank");
 });
+

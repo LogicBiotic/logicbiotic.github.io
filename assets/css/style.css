@@ -1,0 +1,334 @@
+/*This file is deprecated! Use at own risk.*/
+
+/*Global declarations*/
+@font-face {
+    font-family: 'League Spartan';
+    src: url('../assets/LeagueSpartan-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    font-family: 'League Spartan', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Formatting footer pinned to bottom when page is short */
+html,
+body {
+    height: 100%;
+    font-size: 18px;
+    margin: 0;
+}
+
+p {
+    line-height: 1.5;
+}
+
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+main {
+    flex: 1;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+/*Navigation bar stuff here*/
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    min-height: 4rem;
+    color: white;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    box-shadow: 0 1px 25px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar .logo {
+    flex: 1;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+/*Okay I'm just placing this in to test keyframes lol*/
+
+.navbar .logo {
+    filter: brightness(0) saturate(100%);
+    transition: filter 0.3s ease;
+}
+
+.navbar .logo:hover {
+    animation: colorCycle 3s linear infinite;
+}
+
+@keyframes colorCycle {
+    0% {
+        filter: brightness(0) saturate(100%);
+        /* Black */
+    }
+
+    33% {
+        filter: brightness(0) saturate(100%) invert(17%) sepia(95%) saturate(4000%) hue-rotate(205deg) brightness(90%) contrast(100%);
+        ;
+        /*Blue */
+    }
+
+    66% {
+        filter: brightness(0) saturate(100%) invert(50%) sepia(78%) saturate(3000%) hue-rotate(85deg) brightness(110%) contrast(90%);
+        /* Green */
+    }
+
+    100% {
+        filter: brightness(0) saturate(100%);
+        /* Back to Black */
+    }
+}
+
+/*End of animation stuff*/
+
+.logo:hover {
+    animation: colorCycle 3s linear infinite;
+}
+
+.navbar .navigation {
+    flex: 10;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.navbar .navigation a,
+.dropdown-toggle {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.navbar .navigation a:hover,
+.dropdown-toggle:hover {
+    color: rgba(0, 0, 0, 0.9);
+}
+
+.navbar .social-icons {
+    flex: 2;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.navbar .social-icons img:hover {
+    filter: brightness(0) saturate(100%) invert(17%) sepia(95%) saturate(5156%) hue-rotate(188deg) brightness(120%) contrast(100%);
+}
+
+.navigation {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+}
+
+.nav-item-with-dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 2.5rem;
+    left: -2rem;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    min-width: 175px;
+    z-index: 10;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 0.25rem 1rem;
+    margin: 0.5rem 0;
+    color: white;
+    text-decoration: none;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f6f6f6;
+}
+
+.nav-item-with-dropdown.open .dropdown-menu {
+    display: block;
+}
+
+.dropdown-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding-left: 0.2rem;
+}
+
+/*Main stuff here*/
+main {
+    background-color: #e8e8e8;
+    padding: 5rem 1rem 1rem 1rem;
+}
+
+main h2 {
+    margin-bottom: 0.75rem;
+}
+
+.container {
+    background-color: #fff;
+    padding: 1rem 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    box-shadow: 0 1px 12px rgba(0, 0, 0, 0.25);
+}
+
+
+
+.download-link {
+    text-decoration: none;
+    color: #333;
+    margin: 0.5rem 0;
+}
+
+.download-link:hover {
+    text-decoration: underline;
+    color: rgba(100, 200, 255, 0.9);
+}
+
+.download-desc {
+    margin-bottom: 1rem;
+}
+
+.download-preview {
+    max-width: 10%;
+    border-radius: 5px;
+}
+
+
+.inviteBtn {
+    padding: 8px 14px;
+    background-color: #5865F2;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    margin-right: 8px;
+}
+
+.tosBtn {
+    padding: 8px 14px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+/*.features .feature-row .left p, .features .feature-row .right p{
+
+}*/
+
+/*Footer stuff here*/
+footer {
+    background-color: #f8f8f8;
+    width: 100%;
+    min-height: 20%;
+}
+
+.footer-content {
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/*4 footer section here*/
+.footer-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.footer-top .footer-col div h3 {
+    padding: 0.5rem 0;
+}
+
+.footer-col {
+    flex: 1 1 22%;
+    min-width: 200px;
+    padding: 0 0.5rem;
+}
+
+.footer-col .socials ul li {
+    padding: 0.25rem;
+}
+
+.footer-col .socials ul li a {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.footer-col .socials ul li a:hover {
+    text-decoration: underline;
+    color: rgba(100, 200, 255, 0.9);
+}
+
+.footer-col .socials ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.newsletter-form {
+    display: flex;
+    width: 100%;
+    max-width: 400px;
+    /* optional */
+    margin-top: 1rem;
+    justify-content: center;
+}
+
+.footer-col .newsletter-form input[type="email"] {
+    padding: 0.5rem 1rem;
+    border: 2px solid black;
+    border-top: none;
+    border-left: none;
+    border-radius: 0;
+    background: #fff;
+    color: black;
+    outline: none;
+}
+
+.footer-col .newsletter-form button[type="submit"] {
+    padding: 0.5rem 1.2rem;
+    border: 2px solid black;
+    border-left: none;
+    border-radius: 0;
+    background: white;
+    color: black;
+    font-weight: normal;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.footer-col .newsletter-form button[type="submit"]:hover {
+    background: black;
+    color: white;
+}
+
+.footer-bottom .copyright {
+    color: #333;
+}
