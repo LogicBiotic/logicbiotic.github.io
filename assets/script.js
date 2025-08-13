@@ -25,10 +25,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }, 4000); // change every 4 seconds
 });
 
-
-
-
-
 document.addEventListener("DOMContentLoaded", function () {
     // Redirect for Connect button
     const connect = document.getElementById("connect");
@@ -111,14 +107,74 @@ if (resumeLink) {
     });
 }
 
+/*Enterogermina Project here */
 document.getElementById('campaignBtn').addEventListener('click', () => {
   window.open('https://www.facebook.com/EnterogerminaGutDefenseVN/videos/636043429227470/', '_blank');
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const images = [
+        "/media/index/enterogermina1.png",
+        "/media/index/enterogermina2.png",
+        "/media/index/enterogermina3.png",
+        "/media/index/enterogermina4.png",
+        "/media/index/enterogermina5.png"
+    ];
+
+    let index = 0;
+    const imgElement = document.getElementById("enteroImage");
+
+    // Preload images
+    images.forEach(src => {
+        const img = new Image();
+        img.src = src;
+    });
+
+    setInterval(() => {
+        imgElement.style.opacity = 0.35; // fade out
+
+        setTimeout(() => {
+            index = (index + 1) % images.length;
+            imgElement.src = images[index];
+            imgElement.style.opacity = 1; // fade in
+        }, 300); // match transition duration
+    }, 6000); // change every 6 seconds
+});
+
+/*Thesis Feature here */
+document.addEventListener("DOMContentLoaded", function() {
+    const images = [
+        "/media/index/thesis1.png",
+        "/media/index/thesis2.png",
+        "/media/index/thesis3.png",
+        "/media/index/thesis4.png"
+    ];
+
+    let index = 0;
+    const imgElement = document.getElementById("thesisImage");
+
+    // Preload images
+    images.forEach(src => {
+        const img = new Image();
+        img.src = src;
+    });
+
+    setInterval(() => {
+        imgElement.style.opacity = 0.35; // fade out
+
+        setTimeout(() => {
+            index = (index + 1) % images.length;
+            imgElement.src = images[index];
+            imgElement.style.opacity = 1; // fade in
+        }, 300); // match transition duration
+    }, 6000); // change every 6 seconds
 });
 
 document.getElementById("thesisBtn").addEventListener("click", function () {
     window.open("files/MendozaH_Thesis Manuscript FINAL SIGNED.pdf", "_blank");
 });
 
+/*Buwen feature here*/
 document.getElementById("buwenBtn").addEventListener("click", function () {
     window.open("https://github.com/LogicBiotic/Buwen-Discord-Gacha-Bot", "_blank");
 });

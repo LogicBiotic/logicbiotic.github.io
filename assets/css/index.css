@@ -53,7 +53,7 @@ main .intro .left .connect:hover {
 }
 
 .right img {
-    max-height: 38rem;
+    max-height: 40rem;
     width: auto;
     object-fit: cover;
     border-radius: 20px;
@@ -70,14 +70,14 @@ main .intro .left .connect:hover {
     display: flex;
     align-items: center;
     text-align: center;
-    margin: 40px 0;
+    margin: 2rem 0 0 0;
 }
 
 .separator::before,
 .separator::after {
     content: "";
     flex: 1;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #bbb;
     margin: 0 20px;
 }
 
@@ -86,7 +86,6 @@ main .intro .left .connect:hover {
     margin: 0 0;
 }
 
-/*Timeline*/
 
 /*Features*/
 .features .feature-row {
@@ -94,6 +93,16 @@ main .intro .left .connect:hover {
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
+    min-height: 35rem;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.features .feature-row::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid #ddd;
+    margin: 1rem 5rem;
 }
 
 .feature-row .ft-text,
@@ -103,10 +112,11 @@ main .intro .left .connect:hover {
 }
 
 .features .feature-row .ft-text {
-
+    display: flex;
+    flex-direction: column;
     align-self: stretch;
     /* or remove this line entirely */
-    justify-content: flex-start;
+    justify-content: center;
     /* push content to the top */
     text-align: justify;
     padding: 1rem 8rem;
@@ -140,11 +150,34 @@ main .intro .left .connect:hover {
     transition: background-color 0.3s, color 0.3s;
 }
 
-
-.features .feature-row .ft-image {
+/* .features .feature-row .ft-image {
     display: flex;
     align-self: center;
     justify-content: center;
-    min-width: 300px;
-    min-height: 30rem;
+}*/
+
+.ft-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background: #fff;
 }
+
+.ft-image img {
+    display: block;
+    max-height: 40rem;
+}
+
+
+#enteroImage {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+#thesisImage {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/*Timeline*/
