@@ -1,4 +1,90 @@
-document.addEventListener("DOMContentLoaded", function() {
+/*Logo easter egg*/
+const logoLink = document.getElementById("logoLink");
+let logoCooldown = false;
+
+const logoFlavors = [
+    "How do I show that this is a premium logo? Me looking at the notorious fresnel shader: 👀",
+    "Beep boop… I am a robot. Just kidding 🤖",
+    "Click me again and I might tell you a secret 🤫",
+    "FREE PALESTINE! 🕊️",
+    "You clicked it… feeling special yet? 😏",
+    "Welcome to the Nexus, visitor. Hope you enjoy your stay!",
+    "Congratulations! You found the interactive logo easter egg 🥚"
+];
+
+
+if (logoLink) {
+    // Make cursor indicate clickable
+    logoLink.style.cursor = "pointer";
+
+    logoLink.addEventListener("click", function() {
+        if (logoCooldown) return;
+        logoCooldown = true;
+
+        // Remove any existing alert
+        const existingAlert = document.getElementById("logo-alert");
+        if (existingAlert) existingAlert.remove();
+
+        // Pick a random flavor text
+        const randomPrompt = logoFlavors[Math.floor(Math.random() * logoFlavors.length)];
+
+        // Create alert box
+        const alertBox = document.createElement("div");
+        alertBox.id = "logo-alert";
+        alertBox.innerText = randomPrompt;
+
+        // Style in JS
+        Object.assign(alertBox.style, {
+            position: "fixed",
+            top: "1rem",
+            background: "#333",
+            color: "#fff",
+            padding: "0.5rem 0.75rem",
+            borderRadius: "8px",
+            fontFamily: "sans-serif",
+            fontSize: "0.85rem",
+            maxWidth: "40rem",
+            lineHeight: "1.4",
+            boxShadow: "0px 4px 6px rgba(0,0,0,0.1)",
+            boxSizing: "border-box",
+            zIndex: "9999",
+            pointerEvents: "none",
+            animation: "fadeInOut 3s ease forwards"
+        });
+
+        // Append first to measure width
+        document.body.appendChild(alertBox);
+
+        // Center based on actual width
+        const width = alertBox.offsetWidth;
+        alertBox.style.left = `calc(50% - ${width / 2}px)`;
+
+        // Remove after 3 seconds and release cooldown
+        setTimeout(() => {
+            alertBox.remove();
+            logoCooldown = false;
+        }, 3000);
+    });
+}
+
+// Add fadeInOut keyframes if not already present
+if (!document.getElementById("fadeInOutKeyframes")) {
+    const styleSheet = document.createElement("style");
+    styleSheet.id = "fadeInOutKeyframes";
+    styleSheet.innerText = `
+    @keyframes fadeInOut {
+      0% { opacity: 0; transform: translateY(-5px); }
+      10% { opacity: 1; transform: translateY(0); }
+      90% { opacity: 1; transform: translateY(0); }
+      100% { opacity: 0; transform: translateY(-5px); }
+    }`;
+    document.head.appendChild(styleSheet);
+}
+
+
+
+/*For cycling index main intro image*/
+document.addEventListener("DOMContentLoaded", function () {
     const images = [
         "/media/index/profile1.jpg",
         "/media/index/profile2.jpg",
@@ -25,6 +111,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }, 4000); // change every 4 seconds
 });
 
+/*Intro stuff*/
 document.addEventListener("DOMContentLoaded", function () {
     // Redirect for Connect button
     const connect = document.getElementById("connect");
@@ -65,12 +152,18 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// Resume link alert + redirect
+/*Resume link alert + redirect*/
 const resumeLink = document.querySelector(".resume-alert-link");
+let resumeCooldown = false;
 
 if (resumeLink) {
+    resumeLink.style.cursor = "pointer"; // show clickable pointer
+
     resumeLink.addEventListener("click", function (event) {
         event.preventDefault();
+
+        if (resumeCooldown) return; // cooldown active
+        resumeCooldown = true;
 
         // Remove any existing alert
         const existingAlert = document.getElementById("resume-alert");
@@ -80,39 +173,63 @@ if (resumeLink) {
         const alertBox = document.createElement("div");
         alertBox.id = "resume-alert";
         alertBox.innerText = "If you wish to download my resume, please contact me via e-mail.";
+
+        // Style in JS
         Object.assign(alertBox.style, {
             position: "fixed",
             top: "20px",
-            left: "50%",
-            transform: "translateX(-50%)",
             background: "#333",
             color: "#fff",
             padding: "15px 20px",
             borderRadius: "5px",
-            boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+            boxShadow: "0px 4px 6px rgba(0,0,0,0.1)",
+            boxSizing: "border-box",
             zIndex: "9999",
-            opacity: "1",
-            transition: "opacity 0.5s ease-in-out"
+            pointerEvents: "none",
+            fontFamily: "sans-serif",
+            fontSize: "0.85rem",
+            lineHeight: "1.4",
+            animation: "fadeInOut 3s ease forwards"
         });
 
+        // Append first to measure width
         document.body.appendChild(alertBox);
 
+        // Perfect horizontal centering
+        const width = alertBox.offsetWidth;
+        alertBox.style.left = `calc(50% - ${width / 2}px)`;
+
+        // Remove alert after 3s and release cooldown
         setTimeout(() => {
-            alertBox.style.opacity = "0";
-            setTimeout(() => {
-                alertBox.remove();
-                window.open("contact.html", "_blank");
-            }, 500);
+            alertBox.remove();
+            resumeCooldown = false;
+            // Open contact page after alert disappears
+            window.open("contact.html", "_blank");
         }, 3000);
     });
 }
 
+// Add fadeInOut keyframes (only once)
+if (!document.getElementById("fadeInOutKeyframes")) {
+    const styleSheet = document.createElement("style");
+    styleSheet.id = "fadeInOutKeyframes";
+    styleSheet.innerText = `
+    @keyframes fadeInOut {
+      0% { opacity: 0; transform: translateY(-5px); }
+      10% { opacity: 1; transform: translateY(0); }
+      90% { opacity: 1; transform: translateY(0); }
+      100% { opacity: 0; transform: translateY(-5px); }
+    }`;
+    document.head.appendChild(styleSheet);
+}
+
+
 /*Enterogermina Project here */
 document.getElementById('campaignBtn').addEventListener('click', () => {
-  window.open('https://www.facebook.com/EnterogerminaGutDefenseVN/videos/636043429227470/', '_blank');
+    window.open('https://www.facebook.com/EnterogerminaGutDefenseVN/videos/636043429227470/', '_blank');
 });
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const images = [
         "/media/index/enterogermina1.png",
         "/media/index/enterogermina2.png",
@@ -142,7 +259,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 /*Thesis Feature here */
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const images = [
         "/media/index/thesis1.png",
         "/media/index/thesis2.png",
@@ -175,7 +292,71 @@ document.getElementById("thesisBtn").addEventListener("click", function () {
 });
 
 /*Buwen feature here*/
+document.addEventListener("DOMContentLoaded", function () {
+    const images = [
+        "/media/index/buwen1.png",
+        "/media/index/buwen2.png",
+        "/media/index/buwen3.png"
+    ];
+
+    let index = 0;
+    const imgElement = document.getElementById("buwenImage");
+
+    // Preload images
+    images.forEach(src => {
+        const img = new Image();
+        img.src = src;
+    });
+
+    setInterval(() => {
+        imgElement.style.opacity = 0.35; // fade out
+
+        setTimeout(() => {
+            index = (index + 1) % images.length;
+            imgElement.src = images[index];
+            imgElement.style.opacity = 1; // fade in
+        }, 300); // match transition duration
+    }, 6000); // change every 6 seconds
+});
+
 document.getElementById("buwenBtn").addEventListener("click", function () {
     window.open("https://github.com/LogicBiotic/Buwen-Discord-Gacha-Bot", "_blank");
+});
+
+const wittyPrompts = [
+    "It ain't ready yet. Let. Me. Cook. 🍳",
+    "Good things come to those who wait. Bad things come faster to those who don't. 😡",
+    "im still figuring out how to make things work back here, pls wait 😭🥀",
+    "nadelay din ako and im turning out great so pls w8 ⏳",
+    "STOP PRESSING ME ISUSUMBONG KITA SA MAMA MO"
+];
+
+let onCooldown = false;
+
+document.getElementById("addBuwenBtn").addEventListener("click", function (event) {
+    event.preventDefault();
+
+    if (onCooldown) return; // skip if still in cooldown
+    onCooldown = true;
+
+    const randomPrompt = wittyPrompts[Math.floor(Math.random() * wittyPrompts.length)];
+
+    const alertBox = document.createElement("div");
+    alertBox.className = "buwen-alert";
+    alertBox.innerText = randomPrompt;
+
+    document.body.appendChild(alertBox);
+
+    // Position it centered above the button
+    const btnRect = this.getBoundingClientRect();
+    const gapAbove = 8; // px
+    alertBox.style.left = `${btnRect.left + (btnRect.width - alertBox.offsetWidth) / 2 + window.scrollX}px`;
+    alertBox.style.top = `${btnRect.top - alertBox.offsetHeight - gapAbove + window.scrollY}px`;
+
+    // Remove after 3s and reset cooldown
+    setTimeout(() => {
+        alertBox.remove();
+        onCooldown = false;
+    }, 3000);
 });
 

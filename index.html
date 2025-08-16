@@ -11,11 +11,10 @@
 <body>
     <div class="page-wrapper">
         <div class="navbar">
-            <div class="logo">
-                <a href="index.html">
-                    <img class="logo" src="media/logicbiotic-nexus-logo.png" alt="LogicBiotic Nexus" height="40">
-                </a>
-            </div>
+            <a href="index.html">
+                <img class="logo" src="media/logicbiotic-nexus-logo.png" alt="LogicBiotic Nexus" height="40">
+            </a>
+
 
             <div class="navigation">
                 <a href="index.html">Home</a>
@@ -33,7 +32,6 @@
                     <button class="dropdown-toggle" aria-label="Toggle Downloads Menu">&#9660;</button>
                     <div class="dropdown-menu">
                         <a href="#" class="resume-alert-link">Resume</a>
-                        <!-- future JS: give notice and redirect to Contact -->
                         <a href="files/MendozaH_Thesis Manuscript FINAL SIGNED.pdf" target="_blank">Undergraduate
                             Thesis</a>
                     </div>
@@ -127,18 +125,18 @@
                     </div>
                     <div class="feature-row">
                         <div class="ft-image">
-                            left here
+                            <img id="buwenImage" src="/media/index/buwen1.png" alt="Slide 1">
                         </div>
                         <div class="ft-text">
                             <h3>Buwen: Python-Based Gacha Bot on Discord</h3>
                             <p>A work-in-progress Discord bot that simulates daily gacha pulls using a custom database
                                 of collectible characters. Built in Python, Buwen is designed with modularity in mind,
-                                allowing for daily roll limits, rarity-based drop rates, and user inventories.
+                                allowing for daily roll limits, rarity-based drop rates, and user info databasing.
                                 This ongoing personal project reflects my interest in game systems and backend logic,
-                                and is part of a larger goal to explore Discord API integration and gamified user
-                                interaction.
+                                and is part of a larger goal to explore Discord API integration and my interest in game
+                                development.
                             </p>
-                            <button>Add Buwen to Your Server [Soon!]</button>
+                            <button id="addBuwenBtn">Add Buwen to Your Server [Soon!]</button>
                             <button id="buwenBtn">View GitHub Repo</button>
                         </div>
                     </div>
@@ -179,8 +177,16 @@
                     </div>
                 </div>
                 <div class="footer-bottom">
-                    <div class="copyright">
-                        <p>© 2025 LogicBiotic | Designed by LogicBiotic</p>
+                    <div class="footer-col">
+                        <div class="copyright">
+                            <p>© 2025 LogicBiotic | Designed by LogicBiotic</p>
+                        </div>
+                    </div>
+                    <div class="footer-col">
+                        <div class="logo" id="logoLink">
+                            <img class="logo" src="media/logicbiotic-nexus-logo-twine.png" alt="LogicBiotic Nexus"
+                                height="40">
+                        </div>
                     </div>
                 </div>
             </div>

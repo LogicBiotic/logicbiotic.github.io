@@ -66,12 +66,12 @@ main {
 
 /*Okay I'm just placing this in to test keyframes lol*/
 
-.navbar .logo {
+.navbar #logoLink {
     filter: brightness(0) saturate(100%);
     transition: filter 0.3s ease;
 }
 
-.navbar .logo:hover {
+.navbar #logoLink:hover {
     animation: colorCycle 3s linear infinite;
 }
 
@@ -100,7 +100,7 @@ main {
 
 /*End of animation stuff*/
 
-.logo:hover {
+#logoLink:hover {
     animation: colorCycle 3s linear infinite;
 }
 
@@ -283,6 +283,17 @@ footer {
     color: white;
 }
 
+.footer-bottom {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
 .footer-bottom .copyright {
     color: #333;
+}
+
+.footer-bottom .logo {
+    float: right;
 }
