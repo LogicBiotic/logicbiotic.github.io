@@ -9,7 +9,8 @@ const logoFlavors = [
     "FREE PALESTINE! 🕊️",
     "You clicked it… feeling special yet? 😏",
     "Welcome to the Nexus, visitor. Hope you enjoy your stay!",
-    "Congratulations! You found the interactive logo easter egg 🥚"
+    "Congratulations! You found the interactive logo easter egg 🥚",
+    "This logo supposedly represents two coding chevrons (logic) intertwining into DNA (biotic)."
 ];
 
 
@@ -86,9 +87,9 @@ if (!document.getElementById("fadeInOutKeyframes")) {
 /*For cycling index main intro image*/
 document.addEventListener("DOMContentLoaded", function () {
     const images = [
-        "/media/index/profile1.jpg",
-        "/media/index/profile2.jpg",
-        "/media/index/profile3.jpg"
+        "media/index/profile1.jpg",
+        "media/index/profile2.jpg",
+        "media/index/profile3.jpg"
     ];
 
     let index = 0;
@@ -231,11 +232,11 @@ document.getElementById('campaignBtn').addEventListener('click', () => {
 
 document.addEventListener("DOMContentLoaded", function () {
     const images = [
-        "/media/index/enterogermina1.png",
-        "/media/index/enterogermina2.png",
-        "/media/index/enterogermina3.png",
-        "/media/index/enterogermina4.png",
-        "/media/index/enterogermina5.png"
+        "media/index/enterogermina1.png",
+        "media/index/enterogermina2.png",
+        "media/index/enterogermina3.png",
+        "media/index/enterogermina4.png",
+        "media/index/enterogermina5.png"
     ];
 
     let index = 0;
@@ -261,10 +262,10 @@ document.addEventListener("DOMContentLoaded", function () {
 /*Thesis Feature here */
 document.addEventListener("DOMContentLoaded", function () {
     const images = [
-        "/media/index/thesis1.png",
-        "/media/index/thesis2.png",
-        "/media/index/thesis3.png",
-        "/media/index/thesis4.png"
+        "media/index/thesis1.png",
+        "media/index/thesis2.png",
+        "media/index/thesis3.png",
+        "media/index/thesis4.png"
     ];
 
     let index = 0;
@@ -294,9 +295,9 @@ document.getElementById("thesisBtn").addEventListener("click", function () {
 /*Buwen feature here*/
 document.addEventListener("DOMContentLoaded", function () {
     const images = [
-        "/media/index/buwen1.png",
-        "/media/index/buwen2.png",
-        "/media/index/buwen3.png"
+        "media/index/buwen1.png",
+        "media/index/buwen2.png",
+        "media/index/buwen3.png"
     ];
 
     let index = 0;

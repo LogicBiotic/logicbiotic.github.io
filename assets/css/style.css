@@ -3,7 +3,7 @@
 /*Global declarations*/
 @font-face {
     font-family: 'League Spartan';
-    src: url('../assets/LeagueSpartan-VariableFont_wght.ttf') format('truetype');
+    src: url('../LeagueSpartan-VariableFont_wght.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
