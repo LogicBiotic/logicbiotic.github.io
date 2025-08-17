@@ -267,7 +267,7 @@ footer {
     width: 15rem;
 }
 
-.footer-col .newsletter-form button[type="submit"] {
+.footer-col .newsletter-form button {
     padding: 0.5rem 1.2rem;
     border: 2px solid black;
     border-left: none;
@@ -279,7 +279,7 @@ footer {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.footer-col .newsletter-form button[type="submit"]:hover {
+.footer-col .newsletter-form button:hover {
     background: black;
     color: white;
 }
@@ -297,4 +297,5 @@ footer {
 
 .footer-bottom .logo {
     float: right;
+    margin-right: 2.25rem;
 }
