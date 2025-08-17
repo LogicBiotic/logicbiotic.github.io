@@ -170,7 +170,8 @@
                                 in the loop!</p>
                             <form action="#" method="post" class="newsletter-form">
                                 <input type="email" name="email" placeholder="E-Mail Address" required>
-                                <button type="submit">JOIN</button>
+                                <button class="g-recaptcha join-btn" data-sitekey="6LdsFKkrAAAAALcPZgB0jjmur4FCxazSG2g_iMoz" data-callback="onSubmit"
+                                    data-action="submit">JOIN</button>
                             </form>
                         </div>
                     </div>
@@ -191,6 +192,7 @@
             </div>
         </footer>
     </div>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="assets/script.js"></script>
 </body>
 

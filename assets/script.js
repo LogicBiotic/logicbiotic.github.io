@@ -37,7 +37,7 @@ if (logoLink) {
         // Style in JS
         Object.assign(alertBox.style, {
             position: "fixed",
-            top: "1rem",
+            top: "5rem",
             background: "#333",
             color: "#fff",
             padding: "0.5rem 0.75rem",
@@ -178,10 +178,10 @@ if (resumeLink) {
         // Style in JS
         Object.assign(alertBox.style, {
             position: "fixed",
-            top: "20px",
+            top: "5rem",
             background: "#333",
             color: "#fff",
-            padding: "15px 20px",
+            padding: "0.5rem 0.75rem",
             borderRadius: "5px",
             boxShadow: "0px 4px 6px rgba(0,0,0,0.1)",
             boxSizing: "border-box",
@@ -361,3 +361,21 @@ document.getElementById("addBuwenBtn").addEventListener("click", function (event
     }, 3000);
 });
 
+/*Footer stuff - Newsletter*/
+function onSubmit(token) {
+  const form = document.querySelector(".newsletter-form");
+
+  fetch(form.action, {
+    method: "POST",
+    body: new FormData(form)
+  })
+  .then(res => res.json())
+  .then(data => {
+    alert("Thanks for signing up!");
+    form.reset();
+  })
+  .catch(err => {
+    alert("Something went wrong. Please try again.");
+    console.error(err);
+  });
+}
