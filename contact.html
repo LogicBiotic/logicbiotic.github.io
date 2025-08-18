@@ -96,9 +96,12 @@
                             <textarea id="message" name="message" rows="5" placeholder="Your Message*"
                                 spellcheck="false" required></textarea>
                             <p class="disclaimer">Fields marked with * are required. Kindly fill them in.</p>
-                            <button type="submit">Send</button>
+                            <button type="submit" class="g-recaptcha"
+                                data-sitekey="6LdsFKkrAAAAALcPZgB0jjmur4FCxazSG2g_iMoz" data-callback="onSubmitContact"
+                                data-action="submit">
+                                Send
+                            </button>
                         </form>
-
                     </div>
                 </div>
             </div>
@@ -157,6 +160,7 @@
             </div>
         </footer>
     </div>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="assets/script.js"></script>
 </body>
 

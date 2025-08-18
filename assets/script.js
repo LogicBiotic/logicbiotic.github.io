@@ -320,34 +320,46 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /*Contact form content sender */
-document.addEventListener("DOMContentLoaded", function() {
-    const contactForm = document.getElementById("contact-form");
-    if (!contactForm) return;
+function onSubmitContact(token) {
+    const form = document.getElementById("contact-form");
+    if (!form) return;
 
-    contactForm.addEventListener("submit", function(e) {
-        e.preventDefault();
-
-        const form = e.target;
-
-        fetch("https://script.google.com/macros/s/AKfycbyMwDG6M9D48OUdCu_yhXvCXQS_YQMhaUZnUQ7Xyhv6WN8O9Bc3K4sDfgy41nSt_UJV/exec", {
-            method: "POST",
-            body: new FormData(form)
-        })
-        .then(res => res.json())
-        .then(data => {
-            showAlert("Thank you! Your message has been sent. Give me some time to go over it, please! 🎉", false);
-            form.reset();
-        })
-        .catch(err => {
-            console.error(err);
-            showAlert("Something went wrong. Please try again. ❌", true);
-        });
+    fetch(form.action, {
+        method: "POST",
+        body: new FormData(form)
+    })
+    .then(res => res.json())
+    .then(data => {
+        showAlert("Thank you! Your message has been sent. Give me some time to go over it, please! 🎉", false);
+        form.reset();
+    })
+    .catch(err => {
+        showAlert("Something went wrong. Please try again. ❌", true);
+        console.error(err);
     });
-});
+}
 
 
 
 /*Footer stuff - Newsletter*/
+function onSubmit(token) {
+    const form = document.querySelector(".newsletter-form");
+    fetch(form.action, {
+        method: "POST",
+        body: new FormData(form)
+    })
+        .then(res => res.json())
+        .then(data => {
+            showAlert("Thanks for signing up! 🎉", false);
+            form.reset();
+        })
+        .catch(err => {
+            showAlert("Something went wrong. Please try again. ❌", true);
+            console.error(err);
+        });
+}
+
+/* Show alert stuff common*/
 function showAlert(message, isError = false) {
     const existingAlert = document.getElementById("newsletter-alert");
     if (existingAlert) existingAlert.remove();
@@ -379,22 +391,7 @@ function showAlert(message, isError = false) {
     setTimeout(() => alertBox.remove(), 3000);
 }
 
-function onSubmit(token) {
-    const form = document.querySelector(".newsletter-form");
-    fetch(form.action, {
-        method: "POST",
-        body: new FormData(form)
-    })
-        .then(res => res.json())
-        .then(data => {
-            showAlert("Thanks for signing up! 🎉", false);
-            form.reset();
-        })
-        .catch(err => {
-            showAlert("Something went wrong. Please try again. ❌", true);
-            console.error(err);
-        });
-}
+
 
 /*Logo easter egg*/
 document.addEventListener("DOMContentLoaded", function () {
