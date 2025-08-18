@@ -221,8 +221,8 @@ footer {
 }
 
 .footer-col {
-    flex: 1 1 22%;
-    min-width: 200px;
+    flex: 1 1 25%;
+    min-width: 10rem;
     padding: 0 0.5rem;
 }
 

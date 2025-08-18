@@ -1,91 +1,8 @@
-/*Logo easter egg*/
-const logoLink = document.getElementById("logoLink");
-let logoCooldown = false;
-
-const logoFlavors = [
-    "How do I show that this is a premium logo? Me looking at the notorious fresnel shader: 👀",
-    "Beep boop… I am a robot. Just kidding 🤖",
-    "Click me again and I might tell you a secret 🤫",
-    "FREE PALESTINE! 🕊️",
-    "You clicked it… feeling special yet? 😏",
-    "Welcome to the Nexus, visitor. Hope you enjoy your stay!",
-    "Congratulations! You found the interactive logo easter egg 🥚",
-    "This logo supposedly represents two coding chevrons (logic) intertwining into DNA (biotic)."
-];
-
-
-if (logoLink) {
-    // Make cursor indicate clickable
-    logoLink.style.cursor = "pointer";
-
-    logoLink.addEventListener("click", function() {
-        if (logoCooldown) return;
-        logoCooldown = true;
-
-        // Remove any existing alert
-        const existingAlert = document.getElementById("logo-alert");
-        if (existingAlert) existingAlert.remove();
-
-        // Pick a random flavor text
-        const randomPrompt = logoFlavors[Math.floor(Math.random() * logoFlavors.length)];
-
-        // Create alert box
-        const alertBox = document.createElement("div");
-        alertBox.id = "logo-alert";
-        alertBox.innerText = randomPrompt;
-
-        // Style in JS
-        Object.assign(alertBox.style, {
-            position: "fixed",
-            top: "5rem",
-            background: "#333",
-            color: "#fff",
-            padding: "0.5rem 0.75rem",
-            borderRadius: "8px",
-            fontFamily: "sans-serif",
-            fontSize: "0.85rem",
-            maxWidth: "40rem",
-            lineHeight: "1.4",
-            boxShadow: "0px 4px 6px rgba(0,0,0,0.1)",
-            boxSizing: "border-box",
-            zIndex: "9999",
-            pointerEvents: "none",
-            animation: "fadeInOut 3s ease forwards"
-        });
-
-        // Append first to measure width
-        document.body.appendChild(alertBox);
-
-        // Center based on actual width
-        const width = alertBox.offsetWidth;
-        alertBox.style.left = `calc(50% - ${width / 2}px)`;
-
-        // Remove after 3 seconds and release cooldown
-        setTimeout(() => {
-            alertBox.remove();
-            logoCooldown = false;
-        }, 3000);
-    });
-}
-
-// Add fadeInOut keyframes if not already present
-if (!document.getElementById("fadeInOutKeyframes")) {
-    const styleSheet = document.createElement("style");
-    styleSheet.id = "fadeInOutKeyframes";
-    styleSheet.innerText = `
-    @keyframes fadeInOut {
-      0% { opacity: 0; transform: translateY(-5px); }
-      10% { opacity: 1; transform: translateY(0); }
-      90% { opacity: 1; transform: translateY(0); }
-      100% { opacity: 0; transform: translateY(-5px); }
-    }`;
-    document.head.appendChild(styleSheet);
-}
-
-
-
 /*For cycling index main intro image*/
 document.addEventListener("DOMContentLoaded", function () {
+    const imgElement = document.getElementById("profileImage");
+    if (!imgElement) return; // nothing to do if element doesn’t exist
+
     const images = [
         "media/index/profile1.jpg",
         "media/index/profile2.jpg",
@@ -93,7 +10,6 @@ document.addEventListener("DOMContentLoaded", function () {
     ];
 
     let index = 0;
-    const imgElement = document.getElementById("profileImage");
 
     // Preload images
     images.forEach(src => {
@@ -102,15 +18,16 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     setInterval(() => {
-        imgElement.style.opacity = 0.35; // fade out
+        imgElement.style.opacity = 0.35;
 
         setTimeout(() => {
             index = (index + 1) % images.length;
             imgElement.src = images[index];
-            imgElement.style.opacity = 1; // fade in
-        }, 300); // match transition duration
-    }, 4000); // change every 4 seconds
+            imgElement.style.opacity = 1;
+        }, 300);
+    }, 4000);
 });
+
 
 /*Intro stuff*/
 document.addEventListener("DOMContentLoaded", function () {
@@ -226,9 +143,13 @@ if (!document.getElementById("fadeInOutKeyframes")) {
 
 
 /*Enterogermina Project here */
-document.getElementById('campaignBtn').addEventListener('click', () => {
-    window.open('https://www.facebook.com/EnterogerminaGutDefenseVN/videos/636043429227470/', '_blank');
-});
+const campaignBtn = document.getElementById('campaignBtn');
+if (campaignBtn) {
+    campaignBtn.addEventListener('click', () => {
+        window.open('https://www.facebook.com/EnterogerminaGutDefenseVN/videos/636043429227470/', '_blank');
+    });
+}
+
 
 document.addEventListener("DOMContentLoaded", function () {
     const images = [
@@ -242,22 +163,25 @@ document.addEventListener("DOMContentLoaded", function () {
     let index = 0;
     const imgElement = document.getElementById("enteroImage");
 
-    // Preload images
-    images.forEach(src => {
-        const img = new Image();
-        img.src = src;
-    });
+    if (imgElement) { // <-- wrap check
+        // Preload images
+        images.forEach(src => {
+            const img = new Image();
+            img.src = src;
+        });
 
-    setInterval(() => {
-        imgElement.style.opacity = 0.35; // fade out
+        setInterval(() => {
+            imgElement.style.opacity = 0.35; // fade out
 
-        setTimeout(() => {
-            index = (index + 1) % images.length;
-            imgElement.src = images[index];
-            imgElement.style.opacity = 1; // fade in
-        }, 300); // match transition duration
-    }, 6000); // change every 6 seconds
+            setTimeout(() => {
+                index = (index + 1) % images.length;
+                imgElement.src = images[index];
+                imgElement.style.opacity = 1; // fade in
+            }, 300); // match transition duration
+        }, 6000); // change every 6 seconds
+    }
 });
+
 
 /*Thesis Feature here */
 document.addEventListener("DOMContentLoaded", function () {
@@ -271,26 +195,33 @@ document.addEventListener("DOMContentLoaded", function () {
     let index = 0;
     const imgElement = document.getElementById("thesisImage");
 
-    // Preload images
-    images.forEach(src => {
-        const img = new Image();
-        img.src = src;
+    if (imgElement) { // <-- wrap check
+        // Preload images
+        images.forEach(src => {
+            const img = new Image();
+            img.src = src;
+        });
+
+        setInterval(() => {
+            imgElement.style.opacity = 0.35; // fade out
+
+            setTimeout(() => {
+                index = (index + 1) % images.length;
+                imgElement.src = images[index];
+                imgElement.style.opacity = 1; // fade in
+            }, 300); // match transition duration
+        }, 6000); // change every 6 seconds
+    }
+});
+
+
+const thesisBtn = document.getElementById("thesisBtn");
+if (thesisBtn) {
+    thesisBtn.addEventListener("click", function () {
+        window.open("files/MendozaH_Thesis Manuscript FINAL SIGNED.pdf", "_blank");
     });
+}
 
-    setInterval(() => {
-        imgElement.style.opacity = 0.35; // fade out
-
-        setTimeout(() => {
-            index = (index + 1) % images.length;
-            imgElement.src = images[index];
-            imgElement.style.opacity = 1; // fade in
-        }, 300); // match transition duration
-    }, 6000); // change every 6 seconds
-});
-
-document.getElementById("thesisBtn").addEventListener("click", function () {
-    window.open("files/MendozaH_Thesis Manuscript FINAL SIGNED.pdf", "_blank");
-});
 
 /*Buwen feature here*/
 document.addEventListener("DOMContentLoaded", function () {
@@ -303,26 +234,33 @@ document.addEventListener("DOMContentLoaded", function () {
     let index = 0;
     const imgElement = document.getElementById("buwenImage");
 
-    // Preload images
-    images.forEach(src => {
-        const img = new Image();
-        img.src = src;
+    if (imgElement) { // <-- wrap check
+        // Preload images
+        images.forEach(src => {
+            const img = new Image();
+            img.src = src;
+        });
+
+        setInterval(() => {
+            imgElement.style.opacity = 0.35; // fade out
+
+            setTimeout(() => {
+                index = (index + 1) % images.length;
+                imgElement.src = images[index];
+                imgElement.style.opacity = 1; // fade in
+            }, 300); // match transition duration
+        }, 6000); // change every 6 seconds
+    }
+});
+
+
+const buwenBtn = document.getElementById("buwenBtn");
+if (buwenBtn) {
+    buwenBtn.addEventListener("click", function () {
+        window.open("https://github.com/LogicBiotic/Buwen-Discord-Gacha-Bot", "_blank");
     });
+}
 
-    setInterval(() => {
-        imgElement.style.opacity = 0.35; // fade out
-
-        setTimeout(() => {
-            index = (index + 1) % images.length;
-            imgElement.src = images[index];
-            imgElement.style.opacity = 1; // fade in
-        }, 300); // match transition duration
-    }, 6000); // change every 6 seconds
-});
-
-document.getElementById("buwenBtn").addEventListener("click", function () {
-    window.open("https://github.com/LogicBiotic/Buwen-Discord-Gacha-Bot", "_blank");
-});
 
 const wittyPrompts = [
     "It ain't ready yet. Let. Me. Cook. 🍳",
@@ -334,48 +272,212 @@ const wittyPrompts = [
 
 let onCooldown = false;
 
-document.getElementById("addBuwenBtn").addEventListener("click", function (event) {
-    event.preventDefault();
+const addBuwenBtn = document.getElementById("addBuwenBtn");
+if (addBuwenBtn) {
+    addBuwenBtn.addEventListener("click", function (event) {
+        event.preventDefault();
 
-    if (onCooldown) return; // skip if still in cooldown
-    onCooldown = true;
+        if (onCooldown) return; // skip if still in cooldown
+        onCooldown = true;
 
-    const randomPrompt = wittyPrompts[Math.floor(Math.random() * wittyPrompts.length)];
+        const randomPrompt = wittyPrompts[Math.floor(Math.random() * wittyPrompts.length)];
+
+        const alertBox = document.createElement("div");
+        alertBox.className = "buwen-alert";
+        alertBox.innerText = randomPrompt;
+
+        document.body.appendChild(alertBox);
+
+        // Position it centered above the button
+        const btnRect = this.getBoundingClientRect();
+        const gapAbove = 8; // px
+        alertBox.style.left = `${btnRect.left + (btnRect.width - alertBox.offsetWidth) / 2 + window.scrollX}px`;
+        alertBox.style.top = `${btnRect.top - alertBox.offsetHeight - gapAbove + window.scrollY}px`;
+
+        // Remove after 3s and reset cooldown
+        setTimeout(() => {
+            alertBox.remove();
+            onCooldown = false;
+        }, 3000);
+    });
+}
+
+
+/*Contact form change header each reload*/
+document.addEventListener("DOMContentLoaded", () => {
+    const headers = [
+        "From Sprouts to Scripts",
+        "From Roots to Runtime",
+        "From Branches to Bytes",
+        "From Seeds to Systems"
+    ];
+
+    const randomHeader = headers[Math.floor(Math.random() * headers.length)];
+    const headerElement = document.getElementById("contact-header");
+    if (headerElement) {
+        headerElement.innerText = randomHeader;
+    }
+});
+
+/*Contact form content sender */
+document.addEventListener("DOMContentLoaded", function() {
+    const contactForm = document.getElementById("contact-form");
+    if (!contactForm) return;
+
+    contactForm.addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const form = e.target;
+
+        fetch("https://script.google.com/macros/s/AKfycbyMwDG6M9D48OUdCu_yhXvCXQS_YQMhaUZnUQ7Xyhv6WN8O9Bc3K4sDfgy41nSt_UJV/exec", {
+            method: "POST",
+            body: new FormData(form)
+        })
+        .then(res => res.json())
+        .then(data => {
+            showAlert("Thank you! Your message has been sent. Give me some time to go over it, please! 🎉", false);
+            form.reset();
+        })
+        .catch(err => {
+            console.error(err);
+            showAlert("Something went wrong. Please try again. ❌", true);
+        });
+    });
+});
+
+
+
+/*Footer stuff - Newsletter*/
+function showAlert(message, isError = false) {
+    const existingAlert = document.getElementById("newsletter-alert");
+    if (existingAlert) existingAlert.remove();
 
     const alertBox = document.createElement("div");
-    alertBox.className = "buwen-alert";
-    alertBox.innerText = randomPrompt;
+    alertBox.id = "newsletter-alert";
+    alertBox.innerText = message;
+
+    Object.assign(alertBox.style, {
+        position: "fixed",
+        top: "5rem",
+        background: isError ? "#c0392b" : "#27ae60",
+        color: "#fff",
+        padding: "0.5rem 0.75rem",
+        borderRadius: "5px",
+        boxShadow: "0px 4px 6px rgba(0,0,0,0.1)",
+        zIndex: "9999",
+        fontFamily: "sans-serif",
+        fontSize: "0.85rem",
+        lineHeight: "1.4",
+        animation: "fadeInOut 3s ease forwards"
+    });
 
     document.body.appendChild(alertBox);
 
-    // Position it centered above the button
-    const btnRect = this.getBoundingClientRect();
-    const gapAbove = 8; // px
-    alertBox.style.left = `${btnRect.left + (btnRect.width - alertBox.offsetWidth) / 2 + window.scrollX}px`;
-    alertBox.style.top = `${btnRect.top - alertBox.offsetHeight - gapAbove + window.scrollY}px`;
+    const width = alertBox.offsetWidth;
+    alertBox.style.left = `calc(50% - ${width / 2}px)`;
 
-    // Remove after 3s and reset cooldown
-    setTimeout(() => {
-        alertBox.remove();
-        onCooldown = false;
-    }, 3000);
+    setTimeout(() => alertBox.remove(), 3000);
+}
+
+function onSubmit(token) {
+    const form = document.querySelector(".newsletter-form");
+    fetch(form.action, {
+        method: "POST",
+        body: new FormData(form)
+    })
+        .then(res => res.json())
+        .then(data => {
+            showAlert("Thanks for signing up! 🎉", false);
+            form.reset();
+        })
+        .catch(err => {
+            showAlert("Something went wrong. Please try again. ❌", true);
+            console.error(err);
+        });
+}
+
+/*Logo easter egg*/
+document.addEventListener("DOMContentLoaded", function () {
+    const logoLink = document.getElementById("logoLink");
+    let logoCooldown = false;
+
+    const logoFlavors = [
+        "How do I show that this is a premium logo? Me looking at the notorious fresnel shader: 👀",
+        "Beep boop… I am a robot. Just kidding 🤖",
+        "Click me again and I might tell you a secret 🤫",
+        "FREE PALESTINE! 🕊️",
+        "You clicked it… feeling special yet? 😏",
+        "Welcome to the Nexus, visitor. Hope you enjoy your stay!",
+        "Congratulations! You found the interactive logo easter egg 🥚",
+        "This logo supposedly represents two coding chevrons (logic) intertwining into DNA (biotic)."
+    ];
+
+    if (logoLink) {
+        // Make cursor indicate clickable
+        logoLink.style.cursor = "pointer";
+
+        logoLink.addEventListener("click", function () {
+            if (logoCooldown) return;
+            logoCooldown = true;
+
+            // Remove any existing alert
+            const existingAlert = document.getElementById("logo-alert");
+            if (existingAlert) existingAlert.remove();
+
+            // Pick a random flavor text
+            const randomPrompt = logoFlavors[Math.floor(Math.random() * logoFlavors.length)];
+
+            // Create alert box
+            const alertBox = document.createElement("div");
+            alertBox.id = "logo-alert";
+            alertBox.innerText = randomPrompt;
+
+            // Style in JS
+            Object.assign(alertBox.style, {
+                position: "fixed",
+                top: "5rem",
+                background: "#333",
+                color: "#fff",
+                padding: "0.5rem 0.75rem",
+                borderRadius: "8px",
+                fontFamily: "sans-serif",
+                fontSize: "0.85rem",
+                maxWidth: "40rem",
+                lineHeight: "1.4",
+                boxShadow: "0px 4px 6px rgba(0,0,0,0.1)",
+                boxSizing: "border-box",
+                zIndex: "9999",
+                pointerEvents: "none",
+                animation: "fadeInOut 3s ease forwards"
+            });
+
+            // Append first to measure width
+            document.body.appendChild(alertBox);
+
+            // Center based on actual width
+            const width = alertBox.offsetWidth;
+            alertBox.style.left = `calc(50% - ${width / 2}px)`;
+
+            // Remove after 3 seconds and release cooldown
+            setTimeout(() => {
+                alertBox.remove();
+                logoCooldown = false;
+            }, 3000);
+        });
+    }
 });
 
-/*Footer stuff - Newsletter*/
-function onSubmit(token) {
-  const form = document.querySelector(".newsletter-form");
 
-  fetch(form.action, {
-    method: "POST",
-    body: new FormData(form)
-  })
-  .then(res => res.json())
-  .then(data => {
-    alert("Thanks for signing up!");
-    form.reset();
-  })
-  .catch(err => {
-    alert("Something went wrong. Please try again.");
-    console.error(err);
-  });
+// Add fadeInOut keyframes if not already present
+if (!document.getElementById("fadeInOutKeyframes")) {
+    const styleSheet = document.createElement("style");
+    styleSheet.id = "fadeInOutKeyframes";
+    styleSheet.innerText = `
+    @keyframes fadeInOut {
+      0% { opacity: 0; transform: translateY(-5px); }
+      10% { opacity: 1; transform: translateY(0); }
+      90% { opacity: 1; transform: translateY(0); }
+      100% { opacity: 0; transform: translateY(-5px); }
+    }`;
+    document.head.appendChild(styleSheet);
 }

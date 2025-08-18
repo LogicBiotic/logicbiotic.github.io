@@ -6,6 +6,8 @@
     <link rel="icon" href="media/logicbiotic-nexus-logo-twine.png" type="image/png">
     <link rel="stylesheet" href="assets/css/global.css">
     <link rel="stylesheet" href="assets/css/contact.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 
 <body>
@@ -54,31 +56,51 @@
         </div>
         <main>
             <div class="container">
-                <form id="contact-form">
-                    <div>
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name">
+                <div class="contact-content">
+                    <div class="contact-col left">
+                        <h2 id="contact-header"><b>From seeds to systems</b></h2>
+                        <p>
+                            Got any thoughts, ideas, or suggestions? Whether you want to collaborate, hire me, or just
+                            play around with a project, I’m all ears! Please fill up the following form, or if your
+                            matter is urgent, reach out via e-mail or phone.
+                        </p>
+                        <p>
+                            Everyone gets a personalized response, so please allow me a whole day to review your
+                            inquiries!
+                        </p>
+                        <p>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:hfm1741@gmail.com">
+                                </i> hfm1741@gmail.com
+                            </a>
+                        </p>
+                        <p>
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+639562682065">
+                                </i> (+63) 956 268 2065
+                            </a>
+                        </p>
                     </div>
 
-                    <div>
-                        <label for="email">Email<span style="color: red">*</span></label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
+                    <div class="contact-col right">
+                        <form id="contact-form">
+                            <input type="hidden" name="formType" value="contact">
+                            <input type="text" id="name" name="name" placeholder="Name">
+                            <div class="half-row">
+                                <input type="email" id="email" name="email" placeholder="E-mail Address*" required
+                                    class="half-width">
+                                <input type="text" id="contact-number" name="contact-number"
+                                    placeholder="Contact Number" class="half-width">
+                            </div>
+                            <input type="text" id="subject" name="subject" placeholder="Subject">
+                            <textarea id="message" name="message" rows="5" placeholder="Your Message*"
+                                spellcheck="false" required></textarea>
+                            <p class="disclaimer">Fields marked with * are required. Kindly fill them in.</p>
+                            <button type="submit">Send</button>
+                        </form>
 
-                    <div>
-                        <label for="subject">Subject<span style="color: red">*</span></label>
-                        <input type="text" id="subject" name="subject">
                     </div>
-
-                    <div>
-                        <label for="message">Message<span style="color: red">*</span></label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                    </div>
-
-                    <div>
-                        <button type="submit">Send</button>
-                    </div>
-                </form>
+                </div>
             </div>
         </main>
         <footer>
@@ -105,11 +127,16 @@
                         <div class="newsletter">
                             <h3><b>Newsletter</b></h3>
                             <p>Thank you so much for taking the time to drop by. If you're curious about what I'm
-                                currently building, learning, or exploring, leave your email — I’ll personally keep you
+                                currently building, learning, or exploring, leave your e-mail — I’ll personally keep you
                                 in the loop!</p>
-                            <form action="#" method="post" class="newsletter-form">
+                            <form
+                                action="https://script.google.com/macros/s/AKfycbyMwDG6M9D48OUdCu_yhXvCXQS_YQMhaUZnUQ7Xyhv6WN8O9Bc3K4sDfgy41nSt_UJV/exec"
+                                method="post" class="newsletter-form">
+                                <input type="hidden" name="formType" value="newsletter">
                                 <input type="email" name="email" placeholder="E-Mail Address" required>
-                                <button type="submit">JOIN</button>
+                                <button class="g-recaptcha join-btn"
+                                    data-sitekey="6LdsFKkrAAAAALcPZgB0jjmur4FCxazSG2g_iMoz" data-callback="onSubmit"
+                                    data-action="submit">JOIN</button>
                             </form>
                         </div>
                     </div>

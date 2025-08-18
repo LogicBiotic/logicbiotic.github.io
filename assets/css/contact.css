@@ -1,0 +1,99 @@
+/*Col containers css*/
+.contact-content {
+    display: flex;
+    gap: 2rem;
+    padding: 1rem 1rem;
+}
+
+.contact-col {
+    flex: 1;
+    padding: 0 0.5rem;
+}
+
+.contact-col.left {
+    flex: 0.3;
+    align-self: center;
+    text-align: justify;
+    padding: 1vw 8vw;
+    min-width: 300px;
+}
+
+.contact-col.left h3 {
+    margin-bottom: 0.75rem;
+}
+
+.contact-col.left p {
+    margin-bottom: 1rem;
+}
+
+.contact-col.left i {
+    padding-right: 1rem;
+}
+
+.contact-col.left a {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.contact-col.left a:hover {
+    color: rgba(100, 200, 255, 0.9)
+}
+
+
+.contact-col.right {
+    flex: 0.7;
+    padding-right: 8vw;
+}
+
+#contact-form input,
+#contact-form textarea {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 0.5rem; 
+    margin-bottom: 0.5rem; /* spacing between fields */
+    box-sizing: border-box;
+    font-size: 0.9rem;
+}
+
+.half-row {
+    display: flex;
+    gap: 1rem; /* space between the two inputs */
+}
+
+.half-row .half-width {
+    width: 50%;
+}
+
+#contact-form textarea {
+    display: block;
+    width: 100%;       /* lock width to container */
+    max-width: 100%;   /* prevent overflow */
+    box-sizing: border-box; /* include padding/border in width */
+    margin-bottom: 0.2rem;    /* spacing below */
+    resize: vertical;        /* allow vertical resize only */
+    min-height: 15rem;
+}
+
+#contact-form .disclaimer {
+    margin-bottom: 0rem;
+    margin-left: 0rem;
+    font-size: 0.8rem;
+    color: rgba(0, 0, 0, 0.7)
+}
+
+#contact-form button {
+    display: block;
+    margin: 0.5rem auto;
+    background-color: white;
+    color: black;
+    border: 3px solid black;
+    border-radius: 0;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+#contact-form button:hover {
+    background-color: black;
+    color: white;
+    transition: background-color 0.3s, color 0.3s;
+}
