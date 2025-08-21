@@ -319,7 +319,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-/*Contact form content sender */
+/* Contact form content sender */
 function onSubmitContact(token) {
     const form = document.getElementById("contact-form");
     if (!form) return;
@@ -332,34 +332,50 @@ function onSubmitContact(token) {
     .then(data => {
         showAlert("Thank you! Your message has been sent. Give me some time to go over it, please! 🎉", false);
         form.reset();
+
+        // Reset reCAPTCHA v2 widget so user can submit again
+        if (typeof grecaptcha !== "undefined") {
+            grecaptcha.reset();
+        }
     })
     .catch(err => {
         showAlert("Something went wrong. Please try again. ❌", true);
         console.error(err);
+
+        // Reset reCAPTCHA anyway so user can retry
+        if (typeof grecaptcha !== "undefined") {
+            grecaptcha.reset();
+        }
     });
 }
 
-
-
-/*Footer stuff - Newsletter*/
+/* Newsletter footer form */
 function onSubmit(token) {
     const form = document.querySelector(".newsletter-form");
     fetch(form.action, {
         method: "POST",
         body: new FormData(form)
     })
-        .then(res => res.json())
-        .then(data => {
-            showAlert("Thanks for signing up! 🎉", false);
-            form.reset();
-        })
-        .catch(err => {
-            showAlert("Something went wrong. Please try again. ❌", true);
-            console.error(err);
-        });
+    .then(res => res.json())
+    .then(data => {
+        showAlert("Thanks for signing up! 🎉", false);
+        form.reset();
+
+        if (typeof grecaptcha !== "undefined") {
+            grecaptcha.reset();
+        }
+    })
+    .catch(err => {
+        showAlert("Something went wrong. Please try again. ❌", true);
+        console.error(err);
+
+        if (typeof grecaptcha !== "undefined") {
+            grecaptcha.reset();
+        }
+    });
 }
 
-/* Show alert stuff common*/
+/* Show alert box (common) */
 function showAlert(message, isError = false) {
     const existingAlert = document.getElementById("newsletter-alert");
     if (existingAlert) existingAlert.remove();
@@ -390,6 +406,7 @@ function showAlert(message, isError = false) {
 
     setTimeout(() => alertBox.remove(), 3000);
 }
+
 
 
 
