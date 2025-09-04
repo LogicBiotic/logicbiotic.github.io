@@ -302,6 +302,23 @@ if (addBuwenBtn) {
     });
 }
 
+/*Projects page suspense*/
+document.addEventListener("DOMContentLoaded", () => {
+    const messages = [
+        "Something’s brewing behind the scenes...",
+        "More experiments loading soon...",
+        "This space is reserved for the next big thing.",
+        "Work in progress — watch this spot.",
+        "Ideas in the oven, almost ready to serve."
+    ];
+
+    const suspense = document.getElementById("projects-suspense");
+    if (suspense) {
+        suspense.innerText = messages[Math.floor(Math.random() * messages.length)];
+    }
+});
+
+
 
 /*Contact form change header each reload*/
 document.addEventListener("DOMContentLoaded", () => {

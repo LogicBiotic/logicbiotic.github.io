@@ -147,10 +147,10 @@ main {
     display: none;
     position: absolute;
     top: 2.6rem;
-    left: -2rem;
+    left: -2.5rem;
     background-color: white;
     border: 1px solid rgba(0, 0, 0, 0.125);
-    min-width: 175px;
+    min-width: 200px;
     z-index: 10;
 }
 
@@ -282,6 +282,13 @@ footer {
 .footer-col .newsletter-form button:hover {
     background: black;
     color: white;
+}
+
+.footer-col .note {
+    font-size: 0.85rem;
+    color: #555;
+    margin-top: 0.5rem;
+    margin-left: 1.75rem;
 }
 
 .footer-bottom {

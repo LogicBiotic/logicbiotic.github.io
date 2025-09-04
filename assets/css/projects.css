@@ -1,0 +1,71 @@
+.container {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.project-card {
+    flex: 1 1 30%;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 4rem 3rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    min-height: 25rem;
+}
+
+.project-card h3 {
+    align-self: center;
+}
+
+.project-card p {
+    margin: 0.5rem 0;
+    line-height: 1.4;
+
+}
+
+.project-card .status {
+    font-weight: bold;
+    text-align: center;
+}
+
+.project-card .development {
+    font-weight: bold;
+    text-align: center;
+}
+
+.project-card:last-child {
+    background-color: #eee
+}
+
+.project-card i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    color: #aaa;
+    font-style: italic;
+}
+
+.project-card i::before,
+.project-card i::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid #aaa;
+    margin: 0 10px;
+}
+
+.project-card button {
+    display: block;
+    margin: 0.5rem auto;
+    background-color: white;
+    color: black;
+    border: 3px solid black;
+    border-radius: 0;
+    padding: 0.5rem 1rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
