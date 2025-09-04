@@ -337,60 +337,51 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* Contact form content sender */
-function onSubmitContact(token) {
-    const form = document.getElementById("contact-form");
-    if (!form) return;
-
-    fetch(form.action, {
-        method: "POST",
-        body: new FormData(form)
-    })
-    .then(res => res.json())
-    .then(data => {
-        showAlert("Thank you! Your message has been sent. Give me some time to go over it, please! 🎉", false);
-        form.reset();
-
-        // Reset reCAPTCHA v2 widget so user can submit again
-        if (typeof grecaptcha !== "undefined") {
-            grecaptcha.reset();
-        }
-    })
-    .catch(err => {
-        showAlert("Something went wrong. Please try again. ❌", true);
-        console.error(err);
-
-        // Reset reCAPTCHA anyway so user can retry
-        if (typeof grecaptcha !== "undefined") {
-            grecaptcha.reset();
-        }
-    });
-}
+document.addEventListener("DOMContentLoaded", () => {
+    const contactForm = document.getElementById("contact-form");
+    if (contactForm) {
+        contactForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            fetch(contactForm.action, {
+                method: "POST",
+                body: new FormData(contactForm)
+            })
+            .then(res => res.json())
+            .then(data => {
+                showAlert("Thank you! Your message has been sent. Give me some time to go over it, please! 🎉", false);
+                contactForm.reset();
+            })
+            .catch(err => {
+                showAlert("Something went wrong. Please try again. ❌", true);
+                console.error(err);
+            });
+        });
+    }
+});
 
 /* Newsletter footer form */
-function onSubmit(token) {
-    const form = document.querySelector(".newsletter-form");
-    fetch(form.action, {
-        method: "POST",
-        body: new FormData(form)
-    })
-    .then(res => res.json())
-    .then(data => {
-        showAlert("Thanks for signing up! 🎉", false);
-        form.reset();
+document.addEventListener("DOMContentLoaded", () => {
+    const newsletterForm = document.querySelector(".newsletter-form");
+    if (newsletterForm) {
+        newsletterForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            fetch(newsletterForm.action, {
+                method: "POST",
+                body: new FormData(newsletterForm)
+            })
+            .then(res => res.json())
+            .then(data => {
+                showAlert("Thanks for signing up! 🎉", false);
+                newsletterForm.reset();
+            })
+            .catch(err => {
+                showAlert("Something went wrong. Please try again. ❌", true);
+                console.error(err);
+            });
+        });
+    }
+});
 
-        if (typeof grecaptcha !== "undefined") {
-            grecaptcha.reset();
-        }
-    })
-    .catch(err => {
-        showAlert("Something went wrong. Please try again. ❌", true);
-        console.error(err);
-
-        if (typeof grecaptcha !== "undefined") {
-            grecaptcha.reset();
-        }
-    });
-}
 
 /* Show alert box (common) */
 function showAlert(message, isError = false) {
