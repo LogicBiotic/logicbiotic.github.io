@@ -204,7 +204,7 @@ footer {
 }
 
 .footer-content {
-    padding: 2rem 1rem;
+    padding: 2rem 3rem;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -263,6 +263,12 @@ footer {
     transition: width 0.3s ease;
 }
 
+#loveNote {
+    font-size: 0.85rem;
+    color: #555;
+    margin: 1rem 0 0 0;
+}
+
 /* Floating hearts for footer love button */
 .heart {
     position: absolute;
@@ -282,7 +288,6 @@ footer {
         opacity: 0;
     }
 }
-
 
 .footer-col .socials ul li {
     padding: 0.25rem;
@@ -311,6 +316,10 @@ footer {
     /* optional */
     margin-top: 1rem;
     justify-content: center;
+}
+
+.newsletter p {
+    text-align: justify;
 }
 
 .footer-col .newsletter-form input[type="email"] {
@@ -350,7 +359,7 @@ footer {
 }
 
 .footer-bottom {
-    margin-top: 2rem;
+    margin: 0rem 0rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -362,5 +371,4 @@ footer {
 
 .footer-bottom .logo {
     float: right;
-    margin-right: 0.5rem;
 }

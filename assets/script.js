@@ -372,63 +372,73 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-/* Love Widget (Footer Hearts with floating hearts + Google Sheets integration) */
+/* Love Widget (Google Sheets via form + 5s cooldown + auto-update) */
 document.addEventListener("DOMContentLoaded", () => {
     const loveBtn = document.getElementById("loveBtn");
     const loveCountEl = document.getElementById("loveCount");
     const loveProgress = document.getElementById("loveProgress");
+    const maxHearts = 1000000;
+    const webAppUrl = "https://script.google.com/macros/s/AKfycbxLxCoB9FDdYx1TBEZB-fTkGH_udZF6Rfqzlgg8vUSEi74h9IVwlimkvlQ_Kx3SAg5XiA/exec";
 
     if (!loveBtn || !loveCountEl || !loveProgress) {
         console.warn("Love widget elements not found.");
         return;
     }
 
-    let loveCount = 0;
-    const maxHearts = 1000000;
+    let onCooldown = false;
 
-    const webAppUrl = "https://script.google.com/macros/s/AKfycbx8IWD4o8E6me62vSRdS2j6S-B1vfHOOX8-FpK1ojBkQbvO3gyY-cLzau9Rr-8hBOu9lg/exec";
+    // Function to fetch current count from Sheets (GET)
+    async function fetchLoveCount() {
+        try {
+            const res = await fetch(webAppUrl, { method: "GET" });
+            const text = await res.text();
+            const newCount = parseInt(text);
+            if (!isNaN(newCount)) {
+                loveCountEl.textContent = newCount.toLocaleString();
+                loveProgress.style.width = `${Math.min((newCount / maxHearts) * 100, 100)}%`;
+            }
+        } catch (err) {
+            console.error("Failed to fetch Google Sheets count:", err);
+        }
+    }
 
-    loveBtn.addEventListener("click", async (e) => {
-        // Floating hearts
+    // Initial fetch + interval every 1 second
+    fetchLoveCount();
+    setInterval(fetchLoveCount, 1000);
+
+    // Add floating heart + cooldown
+    loveBtn.closest("form").addEventListener("submit", (e) => {
+        if (onCooldown) {
+            e.preventDefault();
+            return;
+        }
+
+        onCooldown = true;
+
+        // Floating heart
         const scrollX = window.scrollX || window.pageXOffset;
         const scrollY = window.scrollY || window.pageYOffset;
-
+        const rect = loveBtn.getBoundingClientRect();
         const heart = document.createElement("span");
         heart.className = "heart";
         heart.textContent = "❤️";
-        document.body.appendChild(heart);
-        heart.style.left = `${e.clientX + scrollX}px`;
-        heart.style.top = `${e.clientY + scrollY}px`;
+        heart.style.left = `${rect.left + scrollX}px`;
+        heart.style.top = `${rect.top + scrollY}px`;
         const randomX = (Math.random() - 0.5) * 100;
         heart.style.setProperty("--x", `${randomX}px`);
+        document.body.appendChild(heart);
         setTimeout(() => heart.remove(), 1000);
 
-        // Update local counter & progress
-        loveCount++;
-        loveCountEl.textContent = loveCount.toLocaleString();
-        loveProgress.style.width = `${Math.min((loveCount / maxHearts) * 100, 100)}%`;
+        // Cooldown and change to white heart
+        const originalHeart = loveBtn.textContent;
+        loveBtn.textContent = "🤍";
 
-        // Google Sheets
-        if (webAppUrl) {
-            try {
-                const res = await fetch(webAppUrl, { method: "POST" });
-                const text = await res.text();
-                console.log("Sheets response:", text);
-                const newCount = parseInt(text);
-                if (!isNaN(newCount)) {
-                    loveCount = newCount;
-                    loveCountEl.textContent = loveCount.toLocaleString();
-                    loveProgress.style.width = `${Math.min((loveCount / maxHearts) * 100, 100)}%`;
-                } else {
-                    console.warn("Sheets returned NaN:", text);
-                }
-            } catch (err) {
-                console.error("Failed to update Google Sheets count:", err);
-            }
-        }
+        setTimeout(() => {
+            loveBtn.textContent = originalHeart;
+            onCooldown = false;
+        }, 5000);
     });
 });
-
 
 /* Newsletter footer form */
 document.addEventListener("DOMContentLoaded", () => {

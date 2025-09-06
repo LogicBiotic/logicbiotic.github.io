@@ -96,8 +96,15 @@
             <div class="footer-top">
                 <div class="footer-col">
                     <div class="love-widget">
-                        <h3><b>Like My Page?</b></h3>
-                        <button id="loveBtn" class="heart-btn">❤️</button>
+                        <h3><b>Like My Site?</b></h3>
+                        <form class="love-form"
+                            action="https://script.google.com/macros/s/AKfycbxLxCoB9FDdYx1TBEZB-fTkGH_udZF6Rfqzlgg8vUSEi74h9IVwlimkvlQ_Kx3SAg5XiA/exec"
+                            method="POST" target="hiddenFrame">
+                            <button type="submit" id="loveBtn" class="heart-btn">❤️</button>
+                            <p class="note" id="loveNote">*A cooldown of 5 seconds applies.</p>
+                            <input type="hidden" name="formType" value="loveClick">
+                        </form>
+                        <iframe name="hiddenFrame" style="display:none;"></iframe>
                         <div class="progress-container">
                             <div class="progress-bar" id="loveProgress"></div>
                         </div>
