@@ -221,7 +221,7 @@ footer {
 }
 
 .footer-top .footer-col:first-child {
-    flex: 1 1 50%; /* take up half width */
+    flex: 1 1 50%;
 }
 
 .footer-col {
