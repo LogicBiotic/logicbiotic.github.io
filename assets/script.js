@@ -386,7 +386,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let loveCount = 0;
     const maxHearts = 1000000;
 
-    const webAppUrl = "https://script.google.com/macros/s/AKfycbwADCeWeIcyMBXV0ZmZU5J9PfvKecOhJeOeAMLjSgXeAZI_ZKZDdVkBTq-VOKOLoV7x4w/exec";
+    const webAppUrl = "https://script.google.com/macros/s/AKfycbx8IWD4o8E6me62vSRdS2j6S-B1vfHOOX8-FpK1ojBkQbvO3gyY-cLzau9Rr-8hBOu9lg/exec";
 
     loveBtn.addEventListener("click", async (e) => {
         // Floating hearts
