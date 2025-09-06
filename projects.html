@@ -9,140 +9,147 @@
 </head>
 
 <body>
-    <div class="page-wrapper">
-        <div class="navbar">
-            <a href="index.html">
-                <img class="logo" src="media/logicbiotic-nexus-logo.png" alt="LogicBiotic Nexus" height="40">
-            </a>
+    <div class="navbar">
+        <a href="index.html">
+            <img class="logo" src="media/logicbiotic-nexus-logo.png" alt="LogicBiotic Nexus" height="40">
+        </a>
 
-            <div class="navigation">
-                <a href="index.html">Home</a>
+        <div class="navigation">
+            <a href="index.html">Home</a>
 
-                <div class="nav-item-with-dropdown">
-                    <a href="projects.html">Projects</a>
-                    <button class="dropdown-toggle" aria-label="Toggle Projects Menu">&#9660;</button>
-                    <div class="dropdown-menu">
-                        <a href="#">Buwen</a>
-                    </div>
+            <div class="nav-item-with-dropdown">
+                <a href="projects.html">Projects</a>
+                <button class="dropdown-toggle" aria-label="Toggle Projects Menu">&#9660;</button>
+                <div class="dropdown-menu">
+                    <a href="#">Outdoor Survival</a>
+                    <a href="#">Buwen</a>
                 </div>
-
-                <div class="nav-item-with-dropdown">
-                    <a href="downloads.html">Downloads</a>
-                    <button class="dropdown-toggle" aria-label="Toggle Downloads Menu">&#9660;</button>
-                    <div class="dropdown-menu">
-                        <a href="#" class="resume-alert-link">Resume</a>
-                        <!-- future JS: give notice and redirect to Contact -->
-                        <a href="files/MendozaH_Thesis Manuscript FINAL SIGNED.pdf" target="_blank">Undergraduate
-                            Thesis</a>
-                    </div>
-                </div>
-                <a href="contact.html">Contact</a>
             </div>
 
-            <div class="social-icons">
-                <a href="https://github.com/LogicBiotic" target="_blank"><img src="media/icons/github-logo.png"
-                        alt="GitHub" height="20"></a>
-                <a href="https://www.linkedin.com/in/herbert-f-mendoza/" target="_blank"><img
-                        src="media/icons/linkedin-logo.png" alt="LinkedIn" height="20"></a>
-                <a href="https://discord.gg/VCCKjUWQ9K" target="_blank"><img src="media/icons/discord-logo.png"
-                        alt="Discord" height="20"></a>
-                <a href="https://www.facebook.com/herbert.f.mendoza/" target="_blank"><img
-                        src="media/icons/facebook-logo.png" alt="Facebook" height="20"></a>
-                <a href="https://x.com/LogicBiotic" target="_blank"><img src="media/icons/x-logo.png" alt="X"
-                        height="20"></a>
+            <div class="nav-item-with-dropdown">
+                <a href="downloads.html">Downloads</a>
+                <button class="dropdown-toggle" aria-label="Toggle Downloads Menu">&#9660;</button>
+                <div class="dropdown-menu">
+                    <a href="#" class="resume-alert-link">Resume</a>
+                    <a href="files/MendozaH_Thesis Manuscript FINAL SIGNED.pdf" target="_blank">Undergraduate
+                        Thesis</a>
+                </div>
+            </div>
+            <a href="contact.html">Contact</a>
+        </div>
+
+        <div class="social-icons">
+            <a href="https://github.com/LogicBiotic" target="_blank"><img src="media/icons/github-logo.png" alt="GitHub"
+                    height="20"></a>
+            <a href="https://www.linkedin.com/in/herbert-f-mendoza/" target="_blank"><img
+                    src="media/icons/linkedin-logo.png" alt="LinkedIn" height="20"></a>
+            <a href="https://discord.gg/VCCKjUWQ9K" target="_blank"><img src="media/icons/discord-logo.png"
+                    alt="Discord" height="20"></a>
+            <a href="https://www.facebook.com/herbert.f.mendoza/" target="_blank"><img
+                    src="media/icons/facebook-logo.png" alt="Facebook" height="20"></a>
+            <a href="https://x.com/LogicBiotic" target="_blank"><img src="media/icons/x-logo.png" alt="X"
+                    height="20"></a>
+        </div>
+    </div>
+
+    <main>
+        <div class="container">
+            <div class="project-card">
+                <h3>Outdoor Survival V1</h3>
+                <p>A short text-based survival game built with <strong>HTML5, basic CSS, and JavaScript</strong>,
+                    this game is intended to be a proof of concept for a larger project with more features and
+                    variables involved.
+                </p>
+                <p> In this game, you are suddenly dropped into the wild and must survive by managing your needs while
+                    constructing shelters and tools that increase your chances of being rescued.</p>
+                <p class="status">Status: ✅ Active</p>
+                <p class="development">Development: 🌱 Early Build</p>
+                <button id="outdoorSurvivalBtn">Try Now!</button>
+                <button id="outdoorSurvivalRepo">GitHub Repo</button>
+            </div>
+            <div class="project-card">
+                <h3>Buwen: A Discord Gacha Bot</h3>
+                <p>
+                    Buwen is a custom-built Discord gacha bot designed to capture the thrill of random rewards while
+                    integrating Filipino cultural elements. Players can roll daily to collect virtual cards of
+                    varying rarities and themes. Future updates aim to add upgrades to extend playtime, encourage
+                    frequent log-ins, and enhance the overall experience.
+                </p>
+                <p>
+                    Developed with <strong>discord.py</strong>, Buwen features cooldown tracking, progress saving,
+                    and a constantly expanding pool of rewards. Options for secure and scalable user data management
+                    (such as <strong>Firebase</strong> or similar services) are being explored for future releases.
+                </p>
+
+                <p class="status">Status: ❌ Offline</p>
+                <p class="development">Development: ⚒️ In Progress</p>
+                <button id="addBuwenBtn">Add Buwen to Your Server [Soon!]</button>
+                <button id="buwenBtn">GitHub Repo</button>
+            </div>
+            <div class="project-card">
+                <i id="projects-suspense"> More stuff to come, so stay tuned!</i>
             </div>
         </div>
-        <main>
-            <div class="container">
-                <div class="project-card">
-                    <h3>Outdoor Survival V1</h3>
-                    <p>A short text-based survival game built with <strong>HTML5, basic CSS, and JavaScript</strong>,
-                        this game is intended to be a proof of concept for a larger project with more features and
-                        variables involved.
-                    </p>
-                    <p> In this game, you are suddenly dropped into the wild and must survive by managing your needs while
-                        constructing shelters and tools that increase your chances of being rescued.</p>
-                    <p class="status">Status: ✅ Active</p>
-                    <p class="development">Development: 🌱 Early Build</p>
-                    <button id="outdoorSurvivalBtn">Try Now!</button>
-                    <button id="outdoorSurvivalRepo">GitHub Repo</button>
-                </div>
-                <div class="project-card">
-                    <h3>Buwen: A Discord Gacha Bot</h3>
-                    <p>
-                        Buwen is a custom-built Discord gacha bot designed to capture the thrill of random rewards while
-                        integrating Filipino cultural elements. Players can roll daily to collect virtual cards of
-                        varying rarities and themes. Future updates aim to add upgrades to extend playtime, encourage
-                        frequent log-ins, and enhance the overall experience.
-                    </p>
-                    <p>
-                        Developed with <strong>discord.py</strong>, Buwen features cooldown tracking, progress saving,
-                        and a constantly expanding pool of rewards. Options for secure and scalable user data management
-                        (such as <strong>Firebase</strong> or similar services) are being explored for future releases.
-                    </p>
-
-                    <p class="status">Status: ❌ Offline</p>
-                    <p class="development">Development: ⚒️ In Progress</p>
-                    <button id="addBuwenBtn">Add Buwen to Your Server [Soon!]</button>
-                    <button id="buwenBtn">GitHub Repo</button>
-                </div>
-                <div class="project-card">
-                    <i id="projects-suspense"> More stuff to come, so stay tuned!</i>
-                </div>
-            </div>
-        </main>
-        <footer>
-            <div class="footer-content">
-                <div class="footer-top">
-                    <div class="footer-col"></div>
-                    <div class="footer-col"></div>
-                    <div class="footer-col">
-                        <div class="socials">
-                            <h3><b>Socials</b></h3>
-                            <ul>
-                                <li><a href="https://github.com/LogicBiotic" target="_blank">GitHub</a></li>
-                                <li><a href="https://www.linkedin.com/in/herbert-f-mendoza/"
-                                        target="_blank">LinkedIn</a>
-                                </li>
-                                <li><a href="https://discord.gg/VCCKjUWQ9K" target="_blank">Discord</a></li>
-                                <li><a href="https://www.facebook.com/herbert.f.mendoza/" target="_blank">Facebook</a>
-                                </li>
-                                <li><a href="https://x.com/LogicBiotic" target="_blank">Twitter (X)</a></li>
-                            </ul>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-top">
+                <div class="footer-col">
+                    <div class="love-widget">
+                        <h3><b>Like My Page?</b></h3>
+                        <button id="loveBtn" class="heart-btn">❤️</button>
+                        <div class="progress-container">
+                            <div class="progress-bar" id="loveProgress"></div>
                         </div>
-                    </div>
-                    <div class="footer-col">
-                        <div class="newsletter">
-                            <h3><b>Newsletter</b></h3>
-                            <p>Thank you so much for taking the time to drop by. If you're curious about what I'm
-                                currently building, learning, or exploring, leave your e-mail — I’ll personally keep you
-                                in the loop!</p>
-                            <form
-                                action="https://script.google.com/macros/s/AKfycbz5qWXc2FOQ6KAuIottEo99bK83uij7sPr0vKkddzheiXphx5CVozsheoKMpWJfbOLt/exec"
-                                method="post" class="newsletter-form">
-                                <input type="hidden" name="formType" value="newsletter">
-                                <input type="email" name="email" placeholder="E-Mail Address" required>
-                                <button type="submit" class="join-btn">JOIN</button>
-                            </form>
-                            <p class="note">*Please allow 5 seconds to send your info. Thank you!</p>
-                        </div>
+                        <p><span id="loveCount">0</span> / 1,000,000 hearts</p>
                     </div>
                 </div>
-                <div class="footer-bottom">
-                    <div class="footer-col">
-                        <div class="copyright">
-                            <p>© 2025 LogicBiotic | Designed by LogicBiotic</p>
-                        </div>
+                <div class="footer-col">
+                    <div class="socials">
+                        <h3><b>Socials</b></h3>
+                        <ul>
+                            <li><a href="https://github.com/LogicBiotic" target="_blank">GitHub</a></li>
+                            <li><a href="https://www.linkedin.com/in/herbert-f-mendoza/" target="_blank">LinkedIn</a>
+                            </li>
+                            <li><a href="https://discord.gg/VCCKjUWQ9K" target="_blank">Discord</a></li>
+                            <li><a href="https://www.facebook.com/herbert.f.mendoza/" target="_blank">Facebook</a>
+                            </li>
+                            <li><a href="https://x.com/LogicBiotic" target="_blank">Twitter (X)</a></li>
+                        </ul>
                     </div>
-                    <div class="footer-col">
-                        <div class="logo" id="logoLink">
-                            <img class="logo" src="media/logicbiotic-nexus-logo-twine.png" alt="LogicBiotic Nexus"
-                                height="40">
-                        </div>
+                </div>
+                <div class="footer-col">
+                    <div class="newsletter">
+                        <h3><b>Newsletter</b></h3>
+                        <p>Thank you so much for taking the time to drop by. If you're curious about what I'm
+                            currently building, learning, or exploring, leave your e-mail — I’ll personally keep you
+                            in the loop!</p>
+                        <form
+                            action="https://script.google.com/macros/s/AKfycbz5qWXc2FOQ6KAuIottEo99bK83uij7sPr0vKkddzheiXphx5CVozsheoKMpWJfbOLt/exec"
+                            method="post" class="newsletter-form">
+                            <input type="hidden" name="formType" value="newsletter">
+                            <input type="email" name="email" placeholder="E-Mail Address" required>
+                            <button type="submit" class="join-btn">JOIN</button>
+                        </form>
+                        <p class="note">*Please allow 5 seconds to send your info. Thank you!</p>
                     </div>
                 </div>
             </div>
-        </footer>
+            <div class="footer-bottom">
+                <div class="footer-col">
+                    <div class="copyright">
+                        <p>© 2025 LogicBiotic | Designed by LogicBiotic</p>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <div class="logo" id="logoLink">
+                        <img class="logo" src="media/logicbiotic-nexus-logo-twine.png" alt="LogicBiotic Nexus"
+                            height="40">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
     </div>
     <script src="assets/script.js"></script>
 </body>

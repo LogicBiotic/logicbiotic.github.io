@@ -372,6 +372,64 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+/* Love Widget (Footer Hearts with floating hearts + Google Sheets integration) */
+document.addEventListener("DOMContentLoaded", () => {
+    const loveBtn = document.getElementById("loveBtn");
+    const loveCountEl = document.getElementById("loveCount");
+    const loveProgress = document.getElementById("loveProgress");
+
+    if (!loveBtn || !loveCountEl || !loveProgress) {
+        console.warn("Love widget elements not found.");
+        return;
+    }
+
+    let loveCount = 0;
+    const maxHearts = 1000000;
+
+    const webAppUrl = "https://script.google.com/macros/s/AKfycbwADCeWeIcyMBXV0ZmZU5J9PfvKecOhJeOeAMLjSgXeAZI_ZKZDdVkBTq-VOKOLoV7x4w/exec";
+
+    loveBtn.addEventListener("click", async (e) => {
+        // Floating hearts
+        const scrollX = window.scrollX || window.pageXOffset;
+        const scrollY = window.scrollY || window.pageYOffset;
+
+        const heart = document.createElement("span");
+        heart.className = "heart";
+        heart.textContent = "❤️";
+        document.body.appendChild(heart);
+        heart.style.left = `${e.clientX + scrollX}px`;
+        heart.style.top = `${e.clientY + scrollY}px`;
+        const randomX = (Math.random() - 0.5) * 100;
+        heart.style.setProperty("--x", `${randomX}px`);
+        setTimeout(() => heart.remove(), 1000);
+
+        // Update local counter & progress
+        loveCount++;
+        loveCountEl.textContent = loveCount.toLocaleString();
+        loveProgress.style.width = `${Math.min((loveCount / maxHearts) * 100, 100)}%`;
+
+        // Google Sheets
+        if (webAppUrl) {
+            try {
+                const res = await fetch(webAppUrl, { method: "POST" });
+                const text = await res.text();
+                console.log("Sheets response:", text);
+                const newCount = parseInt(text);
+                if (!isNaN(newCount)) {
+                    loveCount = newCount;
+                    loveCountEl.textContent = loveCount.toLocaleString();
+                    loveProgress.style.width = `${Math.min((loveCount / maxHearts) * 100, 100)}%`;
+                } else {
+                    console.warn("Sheets returned NaN:", text);
+                }
+            } catch (err) {
+                console.error("Failed to update Google Sheets count:", err);
+            }
+        }
+    });
+});
+
+
 /* Newsletter footer form */
 document.addEventListener("DOMContentLoaded", () => {
     const newsletterForm = document.querySelector(".newsletter-form");

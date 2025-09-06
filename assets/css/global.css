@@ -220,11 +220,69 @@ footer {
     padding: 0.5rem 0;
 }
 
+.footer-top .footer-col:first-child {
+    flex: 1 1 50%; /* take up half width */
+}
+
 .footer-col {
     flex: 1 1 25%;
     min-width: 10rem;
     padding: 0 0.5rem;
 }
+
+/* Love widget */
+.love-widget {
+    text-align: center;
+}
+
+.heart-btn {
+    font-size: 2rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.heart-btn:hover {
+    transform: scale(1.2);
+}
+
+.progress-container {
+    width: 80%;
+    height: 15px;
+    background: #eee;
+    margin: 1rem auto;
+    overflow: hidden;
+    border: 1px solid #ccc;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #ff4d4d, #ff8080);
+    transition: width 0.3s ease;
+}
+
+/* Floating hearts for footer love button */
+.heart {
+    position: absolute;
+    font-size: 1.5rem;
+    pointer-events: none;
+    opacity: 0.9;
+    animation: flyUp 1s ease-out forwards;
+}
+
+@keyframes flyUp {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--x), -80px) scale(0.6);
+        opacity: 0;
+    }
+}
+
 
 .footer-col .socials ul li {
     padding: 0.25rem;
