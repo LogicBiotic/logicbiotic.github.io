@@ -318,7 +318,20 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+/*outdoorSurvivalBtn*/
+const outdoorSurvivalBtn = document.getElementById("outdoorSurvivalBtn");
+if (outdoorSurvivalBtn) {
+    outdoorSurvivalBtn.addEventListener("click", function () {
+        window.open("https://logicbiotic.github.io/Outdoor-Survival-v1/", "_blank");
+    });
+}
 
+const outdoorSurvivalRepo = document.getElementById("outdoorSurvivalRepo");
+if (outdoorSurvivalRepo) {
+    outdoorSurvivalRepo.addEventListener("click", function () {
+        window.open("https://github.com/LogicBiotic/Outdoor-Survival-v1", "_blank");
+    });
+}
 
 /*Contact form change header each reload*/
 document.addEventListener("DOMContentLoaded", () => {

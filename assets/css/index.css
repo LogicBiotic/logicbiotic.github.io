@@ -47,7 +47,7 @@ main .container .intro .left .connect {
 main .intro .left .connect:hover {
     background-color: black;
     color: white;
-    transition: background-color 1s, color 0.3s;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 /*Right side*/

@@ -1,0 +1,127 @@
+.download-item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    background: #fafafa;
+    overflow: hidden;
+    /* hides content while collapsing */
+    transition: max-height 0.4s ease, opacity 0.4s ease, padding 0.4s ease;
+    max-height: 2.5rem;
+    /* just enough to show the summary line */
+    padding: 0.5rem 1rem;
+    opacity: 1;
+}
+
+/* When open, let it expand */
+.download-item[open] {
+    max-height: 1000px;
+    /* big enough to contain full content */
+    padding: 0.75rem 1rem;
+    opacity: 1;
+}
+
+/* Summary line */
+.download-item summary {
+    cursor: pointer;
+    font-weight: 600;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    user-select: none;
+}
+
+/* Custom arrow */
+.download-item summary::before {
+    content: "▶";
+    font-size: 0.85rem;
+    transition: transform 0.3s ease;
+}
+
+.download-item[open] summary::before {
+    transform: rotate(90deg);
+}
+
+/* Inner content */
+.download-content {
+    display: flex;
+    gap: 1rem;
+    margin: 0.75rem 10rem 0.5rem 5rem;
+}
+
+/* Thumbnail */
+.download-preview {
+    width: 10%;
+    height: 10%;
+    align-self: center;
+    border-radius: 4px;
+    margin: -5rem 3rem 0 0;
+}
+
+/* Text section */
+.download-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* centers children horizontally */
+}
+
+.download-item p {
+    margin-bottom: 1rem;
+    line-height: 1.5rem;
+
+}
+
+.download-item .disclaimer {
+    font-size: 0.85rem;
+    color: #777;
+    margin-top: 0.5rem;
+    font-style: italic;
+    text-align: justify;
+}
+
+sup {
+  font-size: 0.75em;   /* smaller text */
+  vertical-align: top; /* or middle, depending on look */
+  line-height: 0;      /* prevent it from stretching the line */
+}
+
+.download-item li {
+    margin-bottom: 1rem;
+}
+
+/* Download button */
+.download-buttons {
+    display: flex;
+    gap: 1rem; /* spacing between buttons */
+    justify-content: center; /* center horizontally */
+    margin-top: 1rem;
+}
+
+.download-link {
+    display: inline-block;
+    border: 2px solid black;
+    background: none;
+    color: black;
+    text-decoration: none;
+    font-weight: normal;
+    padding: 0.5rem 1.2rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+    width: auto;
+    margin-right: 7.5rem;
+}
+
+.download-link:hover {
+    background: black;
+    color: white;
+}
+
+
+/* Description */
+.download-desc {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #444;
+    text-align: justify;
+}
