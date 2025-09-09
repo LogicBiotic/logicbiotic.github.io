@@ -70,7 +70,7 @@
     box-sizing: border-box; /* include padding/border in width */
     margin-bottom: 0.2rem;    /* spacing below */
     resize: vertical;        /* allow vertical resize only */
-    min-height: 15rem;
+    min-height: 28rem;
 }
 
 #contact-form .disclaimer {

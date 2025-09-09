@@ -37,6 +37,7 @@ main {
 .container {
     display: flex;
     flex-direction: column;
+    min-height: 47rem;
 }
 
 /*Navigation bar*/
@@ -287,6 +288,10 @@ footer {
         transform: translate(var(--x), -80px) scale(0.6);
         opacity: 0;
     }
+}
+
+.footer-col .socials {
+    padding-left: 5rem;
 }
 
 .footer-col .socials ul li {
